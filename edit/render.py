@@ -35,16 +35,34 @@ def reader(path, vf, w, h):
 # gameplay: speed up, top crop above the burned-in captions, slight grade
 game = reader(GAME, f'setpts=PTS/{SPEED},fps={FPS},'
                     'eq=contrast=1.08:saturation=1.25', W, H)
-# source-time ranges where red titles sit at y~865-935: zoom into the area above them
-RED = [(8.8, 11.35), (15.3, 17.4), (19.9, 22.85), (27.4, 28.65), (31.4, 36.5), (39.25, 41.15)]
+# source-time ranges with red titles at y~865-935 -> window placement for those shots
+RED = [(8.8, 11.35, 'up'), (15.3, 17.4, 'up'), (19.9, 22.85, 'up'), (27.4, 28.65, 'low'),
+       (31.4, 36.5, 'up'), (39.25, 41.15, 'up')]
+WIN_Y = 280          # normal window: y 280..1430 (old yellow captions get inpainted)
+
+def remove_yellow(full):
+    y0, y1 = 1168, 1238
+    band = full[y0:y1]
+    hsv = cv2.cvtColor(band, cv2.COLOR_BGR2HSV)
+    m = cv2.inRange(hsv, (12, 50, 90), (45, 255, 255))
+    if cv2.countNonZero(m) < 40:
+        return full
+    m = cv2.dilate(m, np.ones((7, 7), np.uint8))
+    full = full.copy()
+    full[y0:y1] = cv2.inpaint(band, m, 7, cv2.INPAINT_TELEA)
+    return full
 
 def game_window(full, t):
     ts = t * SPEED
-    if any(a <= ts < b for a, b in RED):
+    mode = next((m for a, b, m in RED if a <= ts < b), None)
+    if mode == 'up':
         win = full[0:855, 140:940]
+    elif mode == 'low':
+        win = remove_yellow(full)[950:1920, 82:998]
     else:
-        win = full[0:GH, 0:W]
+        win = remove_yellow(full)[WIN_Y:WIN_Y + GH, 0:W]
     return cv2.resize(win, (W, GH), interpolation=cv2.INTER_LINEAR)
+
 # facecam: crop around face to fill the bottom panel
 face = reader(FACE, f'fps={FPS},crop=1420:1012:250:0,scale={W}:{FH},'
                     'eq=contrast=1.06:saturation=1.12:brightness=0.01', W, FH)
@@ -195,6 +213,44 @@ def face_base(fimg, t):
     return affine(fimg, s, 0, 0, 0.6 * math.sin(t * 0.9))
 
 ACCENT = (40, 230, 255)    # BGR yellow-gold
+
+EMOJI = json.load(open(f'{S}/emoji_plan.json'))
+for e in EMOJI:
+    im = cv2.imread(f'{S}/emoji/package/img/apple/64/{e["code"]}.png', cv2.IMREAD_UNCHANGED)
+    e['img'] = cv2.resize(im, (176, 176), interpolation=cv2.INTER_LANCZOS4)
+
+def paste_rgba(frame, img, cx, cy, scale, rot, alpha):
+    if scale <= 0.02 or alpha <= 0:
+        return
+    sz = int(img.shape[0] * scale) | 1
+    M = cv2.getRotationMatrix2D((img.shape[1] / 2, img.shape[0] / 2), rot, scale)
+    M[0, 2] += sz / 2 - img.shape[1] / 2
+    M[1, 2] += sz / 2 - img.shape[0] / 2
+    im = cv2.warpAffine(img, M, (sz, sz), flags=cv2.INTER_LINEAR,
+                        borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0, 0))
+    x0, y0 = int(cx - sz / 2), int(cy - sz / 2)
+    xa, ya, xb, yb = max(x0, 0), max(y0, 0), min(x0 + sz, W), min(y0 + sz, H)
+    if xa >= xb or ya >= yb:
+        return
+    sub = im[ya - y0:yb - y0, xa - x0:xb - x0].astype(np.float32)
+    a = sub[..., 3:4] / 255.0 * alpha
+    # soft drop shadow
+    roi = frame[ya:yb, xa:xb].astype(np.float32)
+    roi = roi * (1 - a) + sub[..., :3] * a
+    frame[ya:yb, xa:xb] = roi.astype(np.uint8)
+
+def draw_emojis(frame, t):
+    for e in EMOJI:
+        if not (e['t'] <= t < e['end']):
+            continue
+        l = t - e['t']
+        rem = e['end'] - t
+        sc = spring(l / 0.35, 10, 6) if l < 0.6 else 1.0
+        if rem < 0.12:
+            sc *= rem / 0.12
+        rot = 12 * math.sin(l * 9) * math.exp(-l * 3) + 4 * math.sin(l * 3)
+        bob = 8 * math.sin(l * 5)
+        paste_rgba(frame, e['img'], e['x'], e['y'] + bob, max(sc, 0), rot, 1.0)
 ACCENT2 = (80, 255, 60)    # green
 
 out_path = f'{S}/video_noaudio{"_prev" if PREVIEW else ""}.mp4'
@@ -232,6 +288,8 @@ for fi in range(NF):
     cv2.line(frame, (0, GH), (W, GH), (255, 255, 255), 4)
     hx = int((t * 700) % (W + 400)) - 200
     cv2.line(frame, (max(hx - 160, 0), GH), (min(hx + 160, W), GH), ACCENT, 8)
+
+    draw_emojis(frame, t)
 
     # top progress bar
     cv2.rectangle(frame, (0, 0), (W, 10), (30, 30, 30), -1)
