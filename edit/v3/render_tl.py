@@ -7,7 +7,8 @@ S = sys.argv[1] if len(sys.argv) > 1 else '.'
 PREVIEW = '--preview' in sys.argv
 W, H, FPS = 1080, 1920, 30
 SRC = f'{S}/Timeline.1.mp4'
-DUR = 47.04
+DUR = 42.65
+END_ZOOM = 41.2                   # "Uđi na BMRP" -> push in to the end
 FH = 610                          # facecam panel (top) height in the user's timeline
 GH = H - FH                       # gameplay panel (bottom) height
 SEAM = FH
@@ -53,7 +54,7 @@ for a, b in zip(events, events[1:] + [DUR]):
         t = a + gap * i / (k + 1)
         if b - t > 1.2:
             filled.append(t)
-events = sorted(filled)
+events = sorted(t for t in filled if t < END_ZOOM - 0.8)
 
 FX = ['punch', 'whip', 'shake_rgb', 'zoomout', 'tilt', 'glitch', 'punch_face',
       'flash_punch', 'slide_up']
@@ -246,12 +247,6 @@ for fi in range(NF):
     frame[:FH] = f
     frame[FH:] = g
 
-    # frosted caption strip over the old red-title area
-    ys0, ys1 = 1135, 1325
-    strip = cv2.GaussianBlur(frame[ys0:ys1], (0, 0), 16)
-    frame[ys0:ys1] = (strip.astype(np.float32) * 0.62).astype(np.uint8)
-    for yy in (ys0, ys1):
-        cv2.line(frame, (0, yy), (W, yy), ACCENT, 3)
 
     # glowing divider with moving highlight
     glow = np.zeros((60, W, 3), np.uint8)
@@ -262,6 +257,22 @@ for fi in range(NF):
     cv2.line(frame, (0, SEAM), (W, SEAM), (255, 255, 255), 4)
     hx = int((t * 700) % (W + 400)) - 200
     cv2.line(frame, (max(hx - 160, 0), SEAM), (min(hx + 160, W), SEAM), ACCENT, 8)
+
+    # ending: continuous push-in over "Uđi na BMRP odmah", punch + shake on BMRP
+    if t >= END_ZOOM:
+        l = t - END_ZOOM
+        sc = 1 + 0.55 * ease_out(l / 1.45)
+        hit = max(0.0, 1 - abs(t - 41.86) / 0.18)
+        sc += 0.08 * hit
+        # push in towards his face (top panel), so the end lands on him
+        cy = 960 + (330 - 960) * ease_out(l / 1.0)
+        M = cv2.getRotationMatrix2D((540, cy), 0, sc)
+        M[0, 2] += rng.uniform(-14, 14) * hit
+        M[1, 2] += rng.uniform(-14, 14) * hit + (960 - cy) * 0.0
+        frame = cv2.warpAffine(frame, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+        if hit > 0:
+            frame = rgb_split(frame, 16 * hit)
+        post['flash'] = max(post.get('flash', 0), 0.6 * max(0.0, 1 - abs(t - 41.86) / 0.08))
 
     draw_emojis(frame, t)
 
