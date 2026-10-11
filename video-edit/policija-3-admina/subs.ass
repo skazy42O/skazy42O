@@ -1,0 +1,237 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Luckiest Guy,100,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,0,0,0,0,100,100,1,0,1,9,5,5,0,0,0,1
+Style: Promo,Inter Black,36,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,3,0,5,0,0,0,1
+Style: Box,Inter Black,10,&H50000000,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 5,0:00:00.10,0:00:00.49,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}DANAS{\fscx100\fscy100\c&H00FFFFFF&} ĆEMO
+Dialogue: 5,0:00:00.49,0:00:00.83,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DANAS {\c&H0000E5FF&\fscx112\fscy112}ĆEMO{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:00.83,0:00:01.28,Cap,,0,0,0,,{\an5\pos(475,1180)\fs88\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}ADMINU{\fscx100\fscy100\c&H00FFFFFF&} PONUDITI
+Dialogue: 5,0:00:01.28,0:00:01.84,Cap,,0,0,0,,{\an5\pos(475,1180)\fs88}ADMINU {\c&H0000E5FF&\fscx112\fscy112}PONUDITI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:01.84,0:00:02.18,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0036FF5A&\fscx112\fscy112}RANK{\fscx100\fscy100\c&H00FFFFFF&} UP
+Dialogue: 5,0:00:02.18,0:00:02.40,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}RANK {\c&H0036FF5A&\fscx112\fscy112}UP{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:02.90,0:00:03.14,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}AKO{\fscx100\fscy100\c&H00FFFFFF&} USPE DA
+Dialogue: 5,0:00:03.14,0:00:03.43,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}AKO {\c&H0036FF5A&\fscx112\fscy112}USPE{\fscx100\fscy100\c&H00FFFFFF&} DA
+Dialogue: 5,0:00:03.43,0:00:03.62,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}AKO USPE {\c&H0000E5FF&\fscx112\fscy112}DA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:03.62,0:00:04.06,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0036FF5A&\fscx112\fscy112}POBEGNE{\fscx100\fscy100\c&H00FFFFFF&} OD
+Dialogue: 5,0:00:04.06,0:00:04.25,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}POBEGNE {\c&H0000E5FF&\fscx112\fscy112}OD{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:04.25,0:00:04.73,Cap,,0,0,0,,{\an5\pos(475,1180)\fs99\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}POLICIJE{\fscx100\fscy100\c&H00FFFFFF&} DOBIJA
+Dialogue: 5,0:00:04.73,0:00:05.12,Cap,,0,0,0,,{\an5\pos(475,1180)\fs99}POLICIJE {\c&H0036FF5A&\fscx112\fscy112}DOBIJA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:05.12,0:00:05.41,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0036FF5A&\fscx112\fscy112}RANK{\fscx100\fscy100\c&H00FFFFFF&} UP
+Dialogue: 5,0:00:05.41,0:00:05.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}RANK {\c&H0036FF5A&\fscx112\fscy112}UP{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:06.20,0:00:06.38,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}IMA{\fscx100\fscy100\c&H00FFFFFF&} DA BIRA
+Dialogue: 5,0:00:06.38,0:00:06.53,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}IMA {\c&H0000E5FF&\fscx112\fscy112}DA{\fscx100\fscy100\c&H00FFFFFF&} BIRA
+Dialogue: 5,0:00:06.53,0:00:06.74,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}IMA DA {\c&H0000E5FF&\fscx112\fscy112}BIRA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:06.74,0:00:07.03,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}IZMEĐU{\fscx100\fscy100\c&H00FFFFFF&} TRI
+Dialogue: 5,0:00:07.03,0:00:07.21,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}IZMEĐU {\c&H0000E5FF&\fscx112\fscy112}TRI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:07.21,0:00:07.50,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}VOZILA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:08.00,0:00:08.33,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}OVAJ{\fscx100\fscy100\c&H00FFFFFF&} ZELENI
+Dialogue: 5,0:00:08.33,0:00:08.76,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}OVAJ {\c&H0000E5FF&\fscx112\fscy112}ZELENI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:08.76,0:00:09.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0036FF5A&\fscx112\fscy112}TENKIĆ{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:09.80,0:00:10.35,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}NAJNOVIJI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:10.35,0:00:10.75,Cap,,0,0,0,,{\an5\pos(475,1180)\fs90\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}BOGATI{\fscx100\fscy100\c&H00FFFFFF&} MANSORY
+Dialogue: 5,0:00:10.75,0:00:11.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs90}BOGATI {\c&H0036FF5A&\fscx112\fscy112}MANSORY{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:11.50,0:00:11.70,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}I{\fscx100\fscy100\c&H00FFFFFF&} OVAJ AUTO
+Dialogue: 5,0:00:11.70,0:00:12.10,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}I {\c&H0000E5FF&\fscx112\fscy112}OVAJ{\fscx100\fscy100\c&H00FFFFFF&} AUTO
+Dialogue: 5,0:00:12.10,0:00:12.50,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}I OVAJ {\c&H0000E5FF&\fscx112\fscy112}AUTO{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:12.50,0:00:12.77,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}ZA{\fscx100\fscy100\c&H00FFFFFF&} PREVOZ
+Dialogue: 5,0:00:12.77,0:00:13.30,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}ZA {\c&H0000E5FF&\fscx112\fscy112}PREVOZ{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:13.30,0:00:13.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}GROBOVA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:15.30,0:00:15.77,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}DOBRO,{\fscx100\fscy100\c&H00FFFFFF&} SAD ĆU
+Dialogue: 5,0:00:15.77,0:00:16.06,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DOBRO, {\c&H0000E5FF&\fscx112\fscy112}SAD{\fscx100\fscy100\c&H00FFFFFF&} ĆU
+Dialogue: 5,0:00:16.06,0:00:16.30,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DOBRO, SAD {\c&H0000E5FF&\fscx112\fscy112}ĆU{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:16.30,0:00:16.83,Cap,,0,0,0,,{\an5\pos(475,1180)\fs95\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}POZVATI{\fscx100\fscy100\c&H00FFFFFF&} ADMINA
+Dialogue: 5,0:00:16.83,0:00:17.30,Cap,,0,0,0,,{\an5\pos(475,1180)\fs95}POZVATI {\c&H0000E5FF&\fscx112\fscy112}ADMINA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:17.98,0:00:18.18,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}DA{\fscx100\fscy100\c&H00FFFFFF&} VIDIMO DA
+Dialogue: 5,0:00:18.18,0:00:18.59,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DA {\c&H0000E5FF&\fscx112\fscy112}VIDIMO{\fscx100\fscy100\c&H00FFFFFF&} DA
+Dialogue: 5,0:00:18.59,0:00:18.79,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DA VIDIMO {\c&H0000E5FF&\fscx112\fscy112}DA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:18.79,0:00:18.99,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}LI{\fscx100\fscy100\c&H00FFFFFF&} ĆE
+Dialogue: 5,0:00:18.99,0:00:19.19,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}LI {\c&H0000E5FF&\fscx112\fscy112}ĆE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:19.19,0:00:19.80,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}PRIHVATITI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:19.80,0:00:20.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}PONUDU{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:20.48,0:00:20.98,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}POZVALI{\fscx100\fscy100\c&H00FFFFFF&} SMO
+Dialogue: 5,0:00:20.98,0:00:21.25,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}POZVALI {\c&H0000E5FF&\fscx112\fscy112}SMO{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:21.25,0:00:21.75,Cap,,0,0,0,,{\an5\pos(475,1180)\fs105\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}ADMINA,{\fscx100\fscy100\c&H00FFFFFF&} SEDEO
+Dialogue: 5,0:00:21.75,0:00:22.14,Cap,,0,0,0,,{\an5\pos(475,1180)\fs105}ADMINA, {\c&H0000E5FF&\fscx112\fscy112}SEDEO{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:22.14,0:00:22.36,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}JE{\fscx100\fscy100\c&H00FFFFFF&} OVDE NA
+Dialogue: 5,0:00:22.36,0:00:22.69,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}JE {\c&H0000E5FF&\fscx112\fscy112}OVDE{\fscx100\fscy100\c&H00FFFFFF&} NA
+Dialogue: 5,0:00:22.69,0:00:22.91,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}JE OVDE {\c&H0000E5FF&\fscx112\fscy112}NA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:22.91,0:00:23.30,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}KLUPI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:23.80,0:00:24.50,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}ADMINE!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:26.54,0:00:26.86,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}EVO,{\fscx100\fscy100\c&H00FFFFFF&} IMAM
+Dialogue: 5,0:00:26.86,0:00:27.18,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}EVO, {\c&H0000E5FF&\fscx112\fscy112}IMAM{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:27.18,0:00:27.66,Cap,,0,0,0,,{\an5\pos(475,1180)\fs97\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}PITANJE{\fscx100\fscy100\c&H00FFFFFF&} ZA TEBE
+Dialogue: 5,0:00:27.66,0:00:27.88,Cap,,0,0,0,,{\an5\pos(475,1180)\fs97}PITANJE {\c&H0000E5FF&\fscx112\fscy112}ZA{\fscx100\fscy100\c&H00FFFFFF&} TEBE
+Dialogue: 5,0:00:27.88,0:00:28.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs97}PITANJE ZA {\c&H0000E5FF&\fscx112\fscy112}TEBE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:29.50,0:00:30.09,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}IZABRAN{\fscx100\fscy100\c&H00FFFFFF&} SI DA
+Dialogue: 5,0:00:30.09,0:00:30.35,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}IZABRAN {\c&H0000E5FF&\fscx112\fscy112}SI{\fscx100\fscy100\c&H00FFFFFF&} DA
+Dialogue: 5,0:00:30.35,0:00:30.61,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}IZABRAN SI {\c&H0000E5FF&\fscx112\fscy112}DA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:30.61,0:00:31.39,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}UČESTVUJEŠ{\fscx100\fscy100\c&H00FFFFFF&} U
+Dialogue: 5,0:00:31.39,0:00:31.58,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}UČESTVUJEŠ {\c&H0000E5FF&\fscx112\fscy112}U{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:31.58,0:00:32.30,Cap,,0,0,0,,{\an5\pos(475,1180)\fs93\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}NAGRADNOJ{\fscx100\fscy100\c&H00FFFFFF&} IGRI
+Dialogue: 5,0:00:32.30,0:00:32.69,Cap,,0,0,0,,{\an5\pos(475,1180)\fs93}NAGRADNOJ {\c&H0000E5FF&\fscx112\fscy112}IGRI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:32.69,0:00:32.95,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}ZA{\fscx100\fscy100\c&H00FFFFFF&} RANK UP
+Dialogue: 5,0:00:32.95,0:00:33.34,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}ZA {\c&H0036FF5A&\fscx112\fscy112}RANK{\fscx100\fscy100\c&H00FFFFFF&} UP
+Dialogue: 5,0:00:33.34,0:00:33.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}ZA RANK {\c&H0036FF5A&\fscx112\fscy112}UP{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:37.40,0:00:37.97,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}DOBRO,{\fscx100\fscy100\c&H00FFFFFF&} AJDE
+Dialogue: 5,0:00:37.97,0:00:38.40,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DOBRO, {\c&H0000E5FF&\fscx112\fscy112}AJDE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:40.50,0:00:40.76,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}JOJ,{\fscx100\fscy100\c&H00FFFFFF&} GLEDAJ
+Dialogue: 5,0:00:40.76,0:00:41.10,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}JOJ, {\c&H0000E5FF&\fscx112\fscy112}GLEDAJ{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:41.10,0:00:41.40,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0036FF5A&\fscx112\fscy112}TENK!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:42.00,0:00:42.41,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}ZNAČI,{\fscx100\fscy100\c&H00FFFFFF&} BIRAŠ
+Dialogue: 5,0:00:42.41,0:00:42.77,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}ZNAČI, {\c&H0000E5FF&\fscx112\fscy112}BIRAŠ{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:42.77,0:00:43.19,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}IZMEĐU{\fscx100\fscy100\c&H00FFFFFF&} TRI
+Dialogue: 5,0:00:43.19,0:00:43.45,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}IZMEĐU {\c&H0000E5FF&\fscx112\fscy112}TRI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:43.45,0:00:43.86,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}VOZILA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:44.10,0:00:44.33,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}AKO{\fscx100\fscy100\c&H00FFFFFF&} USPEŠ DA
+Dialogue: 5,0:00:44.33,0:00:44.65,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}AKO {\c&H0000E5FF&\fscx112\fscy112}USPEŠ{\fscx100\fscy100\c&H00FFFFFF&} DA
+Dialogue: 5,0:00:44.65,0:00:44.83,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}AKO USPEŠ {\c&H0000E5FF&\fscx112\fscy112}DA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:44.83,0:00:45.29,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}POBEGNEŠ{\fscx100\fscy100\c&H00FFFFFF&} OD
+Dialogue: 5,0:00:45.29,0:00:45.47,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}POBEGNEŠ {\c&H0000E5FF&\fscx112\fscy112}OD{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:45.47,0:00:45.93,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}POLICIJE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:45.93,0:00:46.34,Cap,,0,0,0,,{\an5\pos(475,1180)\fs90\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0036FF5A&\fscx112\fscy112}DOBIJAŠ{\fscx100\fscy100\c&H00FFFFFF&} RANK UP
+Dialogue: 5,0:00:46.34,0:00:46.62,Cap,,0,0,0,,{\an5\pos(475,1180)\fs90}DOBIJAŠ {\c&H0036FF5A&\fscx112\fscy112}RANK{\fscx100\fscy100\c&H00FFFFFF&} UP
+Dialogue: 5,0:00:46.62,0:00:46.80,Cap,,0,0,0,,{\an5\pos(475,1180)\fs90}DOBIJAŠ RANK {\c&H0036FF5A&\fscx112\fscy112}UP{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:46.82,0:00:47.32,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}SADA{\fscx100\fscy100\c&H00FFFFFF&} BIRAJ
+Dialogue: 5,0:00:47.32,0:00:47.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}SADA {\c&H0000E5FF&\fscx112\fscy112}BIRAJ{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:48.14,0:00:48.25,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}A{\fscx100\fscy100\c&H00FFFFFF&} AKO NE
+Dialogue: 5,0:00:48.25,0:00:48.44,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}A {\c&H0000E5FF&\fscx112\fscy112}AKO{\fscx100\fscy100\c&H00FFFFFF&} NE
+Dialogue: 5,0:00:48.44,0:00:48.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}A AKO {\c&H0000E5FF&\fscx112\fscy112}NE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:48.60,0:00:48.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}USPEM?{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:49.30,0:00:49.63,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}AKO{\fscx100\fscy100\c&H00FFFFFF&} NE USPEŠ,
+Dialogue: 5,0:00:49.63,0:00:49.89,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}AKO {\c&H0000E5FF&\fscx112\fscy112}NE{\fscx100\fscy100\c&H00FFFFFF&} USPEŠ,
+Dialogue: 5,0:00:49.89,0:00:50.41,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}AKO NE {\c&H0000E5FF&\fscx112\fscy112}USPEŠ,{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:50.41,0:00:51.07,Cap,,0,0,0,,{\an5\pos(475,1180)\fs97\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}NAŽALOST{\fscx100\fscy100\c&H00FFFFFF&} RANK
+Dialogue: 5,0:00:51.07,0:00:51.46,Cap,,0,0,0,,{\an5\pos(475,1180)\fs97}NAŽALOST {\c&H0036FF5A&\fscx112\fscy112}RANK{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:51.46,0:00:51.85,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}DOWN{\fscx100\fscy100\c&H00FFFFFF&} NA
+Dialogue: 5,0:00:51.85,0:00:52.11,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DOWN {\c&H0000E5FF&\fscx112\fscy112}NA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:52.11,0:00:52.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}MODERATORA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:00:53.32,0:00:54.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}UFFF...{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:03.10,0:01:03.38,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}UZEO{\fscx100\fscy100\c&H00FFFFFF&} SI AUTO
+Dialogue: 5,0:01:03.38,0:01:03.57,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}UZEO {\c&H0000E5FF&\fscx112\fscy112}SI{\fscx100\fscy100\c&H00FFFFFF&} AUTO
+Dialogue: 5,0:01:03.57,0:01:03.86,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}UZEO SI {\c&H0000E5FF&\fscx112\fscy112}AUTO{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:03.86,0:01:04.05,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}ZA{\fscx100\fscy100\c&H00FFFFFF&} PREVOZ
+Dialogue: 5,0:01:04.05,0:01:04.43,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}ZA {\c&H0000E5FF&\fscx112\fscy112}PREVOZ{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:04.43,0:01:04.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}GROBOVA?{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:05.56,0:01:05.93,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}OKEJ,{\fscx100\fscy100\c&H00FFFFFF&} EVO IH
+Dialogue: 5,0:01:05.93,0:01:06.19,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}OKEJ, {\c&H0000E5FF&\fscx112\fscy112}EVO{\fscx100\fscy100\c&H00FFFFFF&} IH
+Dialogue: 5,0:01:06.19,0:01:06.40,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}OKEJ, EVO {\c&H0000E5FF&\fscx112\fscy112}IH{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:11.10,0:01:11.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}KEROVI?!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:15.40,0:01:15.85,Cap,,0,0,0,,{\an5\pos(475,1180)\fs101\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}KAKVI{\fscx100\fscy100\c&H00FFFFFF&} KEROVI?!
+Dialogue: 5,0:01:15.85,0:01:16.50,Cap,,0,0,0,,{\an5\pos(475,1180)\fs101}KAKVI {\c&H003A3AFF&\fscx112\fscy112}KEROVI?!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:18.70,0:01:19.10,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}BOGAMI!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:22.40,0:01:22.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}ŠTA{\fscx100\fscy100\c&H00FFFFFF&} JE OVO?
+Dialogue: 5,0:01:22.60,0:01:22.76,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}ŠTA {\c&H0000E5FF&\fscx112\fscy112}JE{\fscx100\fscy100\c&H00FFFFFF&} OVO?
+Dialogue: 5,0:01:22.76,0:01:23.00,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}ŠTA JE {\c&H0000E5FF&\fscx112\fscy112}OVO?{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:23.00,0:01:23.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}PET{\fscx100\fscy100\c&H00FFFFFF&} KOLA,
+Dialogue: 5,0:01:23.20,0:01:23.48,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}PET {\c&H003A3AFF&\fscx112\fscy112}KOLA,{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:23.48,0:01:23.80,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}BRATE!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:25.50,0:01:26.09,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}BOGAMI,{\fscx100\fscy100\c&H00FFFFFF&} BIĆE
+Dialogue: 5,0:01:26.09,0:01:26.48,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}BOGAMI, {\c&H0000E5FF&\fscx112\fscy112}BIĆE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:26.48,0:01:26.88,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}JAKO{\fscx100\fscy100\c&H00FFFFFF&} NAPETO
+Dialogue: 5,0:01:26.88,0:01:27.40,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}JAKO {\c&H0000E5FF&\fscx112\fscy112}NAPETO{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:27.80,0:01:28.38,Cap,,0,0,0,,{\an5\pos(475,1180)\fs97\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}PALE{\fscx100\fscy100\c&H00FFFFFF&} MEGAFONE,
+Dialogue: 5,0:01:28.38,0:01:29.44,Cap,,0,0,0,,{\an5\pos(475,1180)\fs97}PALE {\c&H0000E5FF&\fscx112\fscy112}MEGAFONE,{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:29.44,0:01:30.01,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}DERU{\fscx100\fscy100\c&H00FFFFFF&} SE
+Dialogue: 5,0:01:30.01,0:01:30.40,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DERU {\c&H0000E5FF&\fscx112\fscy112}SE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:31.90,0:01:32.34,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}IDE,{\fscx100\fscy100\c&H00FFFFFF&} IDE OVA
+Dialogue: 5,0:01:32.34,0:01:32.70,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}IDE, {\c&H0000E5FF&\fscx112\fscy112}IDE{\fscx100\fscy100\c&H00FFFFFF&} OVA
+Dialogue: 5,0:01:32.70,0:01:33.07,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}IDE, IDE {\c&H0000E5FF&\fscx112\fscy112}OVA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:33.07,0:01:33.80,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}KRNTIJA!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:34.18,0:01:34.58,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}OVO{\fscx100\fscy100\c&H00FFFFFF&} TI JE
+Dialogue: 5,0:01:34.58,0:01:34.91,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}OVO {\c&H0000E5FF&\fscx112\fscy112}TI{\fscx100\fscy100\c&H00FFFFFF&} JE
+Dialogue: 5,0:01:34.91,0:01:35.23,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}OVO TI {\c&H0000E5FF&\fscx112\fscy112}JE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:35.23,0:01:36.11,Cap,,0,0,0,,{\an5\pos(475,1180)\fs87\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}PREMIJUM,{\fscx100\fscy100\c&H00FFFFFF&} NEMAŠ
+Dialogue: 5,0:01:36.11,0:01:36.68,Cap,,0,0,0,,{\an5\pos(475,1180)\fs87}PREMIJUM, {\c&H0000E5FF&\fscx112\fscy112}NEMAŠ{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:36.68,0:01:37.00,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}TO{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:38.00,0:01:38.33,Cap,,0,0,0,,{\an5\pos(475,1180)\fs94\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}OVO{\fscx100\fscy100\c&H00FFFFFF&} NIKAD NISTE
+Dialogue: 5,0:01:38.33,0:01:38.80,Cap,,0,0,0,,{\an5\pos(475,1180)\fs94}OVO {\c&H0000E5FF&\fscx112\fscy112}NIKAD{\fscx100\fscy100\c&H00FFFFFF&} NISTE
+Dialogue: 5,0:01:38.80,0:01:39.27,Cap,,0,0,0,,{\an5\pos(475,1180)\fs94}OVO NIKAD {\c&H0000E5FF&\fscx112\fscy112}NISTE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:39.27,0:01:39.80,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}VIDELI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:40.06,0:01:40.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}POGLEDAJ,{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:40.60,0:01:41.10,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}POGLEDAJ{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:41.40,0:01:42.07,Cap,,0,0,0,,{\an5\pos(475,1180)\fs95\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}MERCEDES{\fscx100\fscy100\c&H00FFFFFF&} I BMW
+Dialogue: 5,0:01:42.07,0:01:42.27,Cap,,0,0,0,,{\an5\pos(475,1180)\fs95}MERCEDES {\c&H0000E5FF&\fscx112\fscy112}I{\fscx100\fscy100\c&H00FFFFFF&} BMW
+Dialogue: 5,0:01:42.27,0:01:42.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs95}MERCEDES I {\c&H0000E5FF&\fscx112\fscy112}BMW{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:43.16,0:01:43.56,Cap,,0,0,0,,{\an5\pos(475,1180)\fs105\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}AJDE{\fscx100\fscy100\c&H00FFFFFF&} PO BUREK
+Dialogue: 5,0:01:43.56,0:01:43.83,Cap,,0,0,0,,{\an5\pos(475,1180)\fs105}AJDE {\c&H0000E5FF&\fscx112\fscy112}PO{\fscx100\fscy100\c&H00FFFFFF&} BUREK
+Dialogue: 5,0:01:43.83,0:01:44.30,Cap,,0,0,0,,{\an5\pos(475,1180)\fs105}AJDE PO {\c&H0000E5FF&\fscx112\fscy112}BUREK{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:44.30,0:01:44.50,Cap,,0,0,0,,{\an5\pos(475,1180)\fs100\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}I{\fscx100\fscy100\c&H00FFFFFF&} JEDAN JOGURT
+Dialogue: 5,0:01:44.50,0:01:44.97,Cap,,0,0,0,,{\an5\pos(475,1180)\fs100}I {\c&H0000E5FF&\fscx112\fscy112}JEDAN{\fscx100\fscy100\c&H00FFFFFF&} JOGURT
+Dialogue: 5,0:01:44.97,0:01:45.50,Cap,,0,0,0,,{\an5\pos(475,1180)\fs100}I JEDAN {\c&H0000E5FF&\fscx112\fscy112}JOGURT{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:46.00,0:01:46.67,Cap,,0,0,0,,{\an5\pos(475,1180)\fs106\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}POGLEDAJ,{\fscx100\fscy100\c&H00FFFFFF&} UFF,
+Dialogue: 5,0:01:46.67,0:01:47.03,Cap,,0,0,0,,{\an5\pos(475,1180)\fs106}POGLEDAJ, {\c&H0000E5FF&\fscx112\fscy112}UFF,{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:47.03,0:01:47.46,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}DOBRI{\fscx100\fscy100\c&H00FFFFFF&} SU
+Dialogue: 5,0:01:47.46,0:01:47.70,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}DOBRI {\c&H0000E5FF&\fscx112\fscy112}SU{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:50.30,0:01:50.95,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}PUCAJU{\fscx100\fscy100\c&H00FFFFFF&} PO
+Dialogue: 5,0:01:50.95,0:01:51.27,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}PUCAJU {\c&H0000E5FF&\fscx112\fscy112}PO{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:01:51.27,0:01:52.00,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}GUMAMA!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:00.40,0:02:00.70,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}E,{\fscx100\fscy100\c&H00FFFFFF&} POGODIĆE
+Dialogue: 5,0:02:00.70,0:02:01.47,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}E, {\c&H0000E5FF&\fscx112\fscy112}POGODIĆE{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:01.47,0:02:02.00,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}GUMU!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:02.40,0:02:02.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}OPA!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:09.60,0:02:09.89,Cap,,0,0,0,,{\an5\pos(475,1180)\fs100\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}OKEJ,{\fscx100\fscy100\c&H00FFFFFF&} MERCEDES
+Dialogue: 5,0:02:09.89,0:02:10.30,Cap,,0,0,0,,{\an5\pos(475,1180)\fs100}OKEJ, {\c&H0000E5FF&\fscx112\fscy112}MERCEDES{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:11.00,0:02:11.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}OPA!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:15.10,0:02:15.26,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}I{\fscx100\fscy100\c&H00FFFFFF&} ONI PUCAJU
+Dialogue: 5,0:02:15.26,0:02:15.51,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}I {\c&H0000E5FF&\fscx112\fscy112}ONI{\fscx100\fscy100\c&H00FFFFFF&} PUCAJU
+Dialogue: 5,0:02:15.51,0:02:15.93,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}I ONI {\c&H003A3AFF&\fscx112\fscy112}PUCAJU{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:15.93,0:02:16.14,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}PO{\fscx100\fscy100\c&H00FFFFFF&} NAMA!
+Dialogue: 5,0:02:16.14,0:02:16.50,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}PO {\c&H0000E5FF&\fscx112\fscy112}NAMA!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:18.00,0:02:18.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs90\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}JOŠ{\fscx100\fscy100\c&H00FFFFFF&} JEDNA PUKLA
+Dialogue: 5,0:02:18.20,0:02:18.48,Cap,,0,0,0,,{\an5\pos(475,1180)\fs90}JOŠ {\c&H0000E5FF&\fscx112\fscy112}JEDNA{\fscx100\fscy100\c&H00FFFFFF&} PUKLA
+Dialogue: 5,0:02:18.48,0:02:18.76,Cap,,0,0,0,,{\an5\pos(475,1180)\fs90}JOŠ JEDNA {\c&H0000E5FF&\fscx112\fscy112}PUKLA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:18.76,0:02:19.00,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}GUMA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:19.40,0:02:19.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}AJMO!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:20.10,0:02:20.40,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}PUKLA{\fscx100\fscy100\c&H00FFFFFF&} GUMA!
+Dialogue: 5,0:02:20.40,0:02:20.70,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}PUKLA {\c&H003A3AFF&\fscx112\fscy112}GUMA!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:22.60,0:02:23.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}BEŽI!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:24.00,0:02:24.48,Cap,,0,0,0,,{\an5\pos(475,1180)\fs93\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}NE,{\fscx100\fscy100\c&H00FFFFFF&} PUKLA GUMA,
+Dialogue: 5,0:02:24.48,0:02:25.16,Cap,,0,0,0,,{\an5\pos(475,1180)\fs93}NE, {\c&H0000E5FF&\fscx112\fscy112}PUKLA{\fscx100\fscy100\c&H00FFFFFF&} GUMA,
+Dialogue: 5,0:02:25.16,0:02:25.83,Cap,,0,0,0,,{\an5\pos(475,1180)\fs93}NE, PUKLA {\c&H003A3AFF&\fscx112\fscy112}GUMA,{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:25.83,0:02:26.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}BRATE!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:30.20,0:02:30.80,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}OPA!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:39.90,0:02:40.55,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}BEŽI,{\fscx100\fscy100\c&H00FFFFFF&} BEŽI!
+Dialogue: 5,0:02:40.55,0:02:41.20,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}BEŽI, {\c&H003A3AFF&\fscx112\fscy112}BEŽI!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:46.80,0:02:47.40,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}BEŽI!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:48.00,0:02:48.45,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}BEŽI,{\fscx100\fscy100\c&H00FFFFFF&} BEŽI!
+Dialogue: 5,0:02:48.45,0:02:48.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}BEŽI, {\c&H003A3AFF&\fscx112\fscy112}BEŽI!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:49.50,0:02:49.78,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}TO{\fscx100\fscy100\c&H00FFFFFF&} JE TO,
+Dialogue: 5,0:02:49.78,0:02:50.06,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}TO {\c&H0000E5FF&\fscx112\fscy112}JE{\fscx100\fscy100\c&H00FFFFFF&} TO,
+Dialogue: 5,0:02:50.06,0:02:50.41,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}TO JE {\c&H0000E5FF&\fscx112\fscy112}TO,{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:50.41,0:02:50.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H003A3AFF&\fscx112\fscy112}BEŽI!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:51.40,0:02:51.76,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}SVAKA{\fscx100\fscy100\c&H00FFFFFF&} ČAST,
+Dialogue: 5,0:02:51.76,0:02:52.12,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}SVAKA {\c&H0000E5FF&\fscx112\fscy112}ČAST,{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:52.12,0:02:52.53,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0036FF5A&\fscx112\fscy112}USPELI{\fscx100\fscy100\c&H00FFFFFF&} SMO DA
+Dialogue: 5,0:02:52.53,0:02:52.78,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}USPELI {\c&H0000E5FF&\fscx112\fscy112}SMO{\fscx100\fscy100\c&H00FFFFFF&} DA
+Dialogue: 5,0:02:52.78,0:02:52.99,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}USPELI SMO {\c&H0000E5FF&\fscx112\fscy112}DA{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:52.99,0:02:53.60,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}POBEGNEMO!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:54.10,0:02:54.31,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}TO{\fscx100\fscy100\c&H00FFFFFF&} ZNAČI
+Dialogue: 5,0:02:54.31,0:02:54.68,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108}TO {\c&H0000E5FF&\fscx112\fscy112}ZNAČI{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:54.68,0:02:55.16,Cap,,0,0,0,,{\an5\pos(475,1180)\fs102\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0036FF5A&\fscx112\fscy112}DOBIJAŠ{\fscx100\fscy100\c&H00FFFFFF&} ADMIN
+Dialogue: 5,0:02:55.16,0:02:55.53,Cap,,0,0,0,,{\an5\pos(475,1180)\fs102}DOBIJAŠ {\c&H0036FF5A&\fscx112\fscy112}ADMIN{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 5,0:02:55.53,0:02:55.90,Cap,,0,0,0,,{\an5\pos(475,1180)\fs108\fscx50\fscy50\t(0,70,\fscx115\fscy115)\t(70,140,\fscx100\fscy100)}{\c&H0000E5FF&\fscx112\fscy112}RANK!{\fscx100\fscy100\c&H00FFFFFF&}
+Dialogue: 6,0:00:14.00,0:00:19.00,Box,,0,0,0,,{\an7\pos(84,323)\frz-2\org(445,423)\fad(180,220)\1c&H000000&\1a&H48&\bord0\shad0\p1}m 0 0 l 721 0 721 200 0 200{\p0}
+Dialogue: 6,0:00:14.00,0:00:19.00,Box,,0,0,0,,{\an7\pos(84,323)\frz-2\org(445,423)\fad(180,220)\1c&H0000E5FF&\1a&H00&\bord0\shad0\p1}m 0 0 l 12 0 12 200 0 200{\p0}
+Dialogue: 7,0:00:14.00,0:00:19.00,Promo,,0,0,0,,{\an5\pos(451,423)\frz-2\org(445,423)\fad(180,220)\fscx70\fscy70\t(0,160,\fscx100\fscy100)}Registrujte se i unesite\N{\fs54\c&H0000E5FF&}PROMOKOD: BMRP2026{\fs36\c&H00FFFFFF&}\Nza besplatna 2 case i bonus novac.
+Dialogue: 6,0:00:55.00,0:01:00.00,Box,,0,0,0,,{\an7\pos(145,815)\frz3\org(506,915)\fad(180,220)\1c&H000000&\1a&H48&\bord0\shad0\p1}m 0 0 l 721 0 721 200 0 200{\p0}
+Dialogue: 6,0:00:55.00,0:01:00.00,Box,,0,0,0,,{\an7\pos(145,815)\frz3\org(506,915)\fad(180,220)\1c&H0000E5FF&\1a&H00&\bord0\shad0\p1}m 0 0 l 12 0 12 200 0 200{\p0}
+Dialogue: 7,0:00:55.00,0:01:00.00,Promo,,0,0,0,,{\an5\pos(512,915)\frz3\org(506,915)\fad(180,220)\fscx70\fscy70\t(0,160,\fscx100\fscy100)}Registrujte se i unesite\N{\fs54\c&H0000E5FF&}PROMOKOD: BMRP2026{\fs36\c&H00FFFFFF&}\Nza besplatna 2 case i bonus novac.
+Dialogue: 6,0:01:37.00,0:01:42.00,Box,,0,0,0,,{\an7\pos(99,161)\frz2\org(460,261)\fad(180,220)\1c&H000000&\1a&H48&\bord0\shad0\p1}m 0 0 l 721 0 721 200 0 200{\p0}
+Dialogue: 6,0:01:37.00,0:01:42.00,Box,,0,0,0,,{\an7\pos(99,161)\frz2\org(460,261)\fad(180,220)\1c&H0000E5FF&\1a&H00&\bord0\shad0\p1}m 0 0 l 12 0 12 200 0 200{\p0}
+Dialogue: 7,0:01:37.00,0:01:42.00,Promo,,0,0,0,,{\an5\pos(466,261)\frz2\org(460,261)\fad(180,220)\fscx70\fscy70\t(0,160,\fscx100\fscy100)}Registrujte se i unesite\N{\fs54\c&H0000E5FF&}PROMOKOD: BMRP2026{\fs36\c&H00FFFFFF&}\Nza besplatna 2 case i bonus novac.
+Dialogue: 6,0:02:04.00,0:02:09.00,Box,,0,0,0,,{\an7\pos(81,605)\frz2\org(442,705)\fad(180,220)\1c&H000000&\1a&H48&\bord0\shad0\p1}m 0 0 l 721 0 721 200 0 200{\p0}
+Dialogue: 6,0:02:04.00,0:02:09.00,Box,,0,0,0,,{\an7\pos(81,605)\frz2\org(442,705)\fad(180,220)\1c&H0000E5FF&\1a&H00&\bord0\shad0\p1}m 0 0 l 12 0 12 200 0 200{\p0}
+Dialogue: 7,0:02:04.00,0:02:09.00,Promo,,0,0,0,,{\an5\pos(448,705)\frz2\org(442,705)\fad(180,220)\fscx70\fscy70\t(0,160,\fscx100\fscy100)}Registrujte se i unesite\N{\fs54\c&H0000E5FF&}PROMOKOD: BMRP2026{\fs36\c&H00FFFFFF&}\Nza besplatna 2 case i bonus novac.
+Dialogue: 6,0:02:43.00,0:02:48.00,Box,,0,0,0,,{\an7\pos(95,728)\frz2\org(456,828)\fad(180,220)\1c&H000000&\1a&H48&\bord0\shad0\p1}m 0 0 l 721 0 721 200 0 200{\p0}
+Dialogue: 6,0:02:43.00,0:02:48.00,Box,,0,0,0,,{\an7\pos(95,728)\frz2\org(456,828)\fad(180,220)\1c&H0000E5FF&\1a&H00&\bord0\shad0\p1}m 0 0 l 12 0 12 200 0 200{\p0}
+Dialogue: 7,0:02:43.00,0:02:48.00,Promo,,0,0,0,,{\an5\pos(462,828)\frz2\org(456,828)\fad(180,220)\fscx70\fscy70\t(0,160,\fscx100\fscy100)}Registrujte se i unesite\N{\fs54\c&H0000E5FF&}PROMOKOD: BMRP2026{\fs36\c&H00FFFFFF&}\Nza besplatna 2 case i bonus novac.
