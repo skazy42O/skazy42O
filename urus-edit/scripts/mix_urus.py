@@ -62,6 +62,7 @@ place(music, song, 0.0)
 fo = int(1.4*SR); e = int(T*SR); music[e-fo:e] *= np.linspace(1, 0, fo)[:, None]**1.6; music[e:] = 0
 
 DROP, P = ev['drop'], ev['P']; cuts = ev['cuts']; pops = ev['pops']; poster = cuts[-1][0]
+def cut(t): return min(cuts, key=lambda c: abs(c[0] - t))[0]   # cut time nearest to t
 
 # ---- engine idle bed (AMG GT 4.0 twin-turbo V8 settling into idle) under intro + detail orbit
 idle = set_rms(sl(amg, 21.55, 23.75), mus_rms - 19)
@@ -84,11 +85,15 @@ place(fx, set_rms(fade(sl(e63, 7.30, 8.15), 0.08, 0.25), mus_rms - 2), pops[1] -
 # riser + reverse whoosh into the drop, glitch on the 11.94 hit, swoosh on the 10.68 flash
 hit(fx, 'riser', DROP - 0.05, -11)
 hit(fx, 'reverse-whoosh', DROP, -9)
-hit(fx, 'glitch', cuts[4][0], -12, length=0.6)
-hit(fx, 'swoosh', cuts[3][0], -13)
-hit(fx, 'whoosh-alt2', cuts[1][0], -14)
-hit(fx, 'whoosh', cuts[2][0], -12)
-hit(fx, 'reverse-whoosh', cuts[0][0] + 0.2, -20)
+hit(fx, 'glitch', cut(11.94), -12, length=0.6)
+hit(fx, 'swoosh', cut(10.68), -13)
+hit(fx, 'whoosh-alt2', cut(4.55), -14)
+hit(fx, 'whoosh', cut(9.75), -12)
+hit(fx, 'reverse-whoosh', cut(2.35) + 0.2, -20)
+# through-the-wheel: spin-up reverse whoosh into the hub, swoosh as the portal opens
+for tc, kind, dur in cuts:
+    if kind == 'wheel':
+        hit(fx, 'reverse-whoosh', tc, -12); hit(fx, 'swoosh', tc + 0.05, -10); hit(fx, 'whoosh-alt1', tc + 0.15, -16)
 
 # ---- the drop: boom + launch, engine follows the edit (varispeed in the slow-mo drift)
 hit(fx, 'boom', DROP, -5); place(fx, boom_synth(), DROP, db(-9))
@@ -110,13 +115,13 @@ place(fx, set_rms(fade(sl(e63, 6.80, 8.30), 0.4, 0.3), mus_rms - 3), DROP - (7.0
 
 # ---- overrun crackles on bar ends (Jaguar F-Type crackle recording)
 crk = fade(sl(ftype, 13.55, 14.55), 0.02, 0.25)
-for tc in [DROP + 2*P + 0.3, cuts[10][0] + 0.05, cuts[11][0] - 0.6, cuts[14][0] - 0.5]:
+for tc in [DROP + 2*P + 0.3, DROP + 12*P + 0.05, DROP + 15*P - 0.6, DROP + 21*P - 0.5]:
     place(fx, set_rms(crk, mus_rms - 8), tc)
 
 # ---- transition SFX on every driving cut
 WH = {'whipleft': 'whoosh-alt1', 'whipright': 'whoosh-alt2', 'whipup': 'whoosh', 'whipdown': 'whoosh-alt1',
       'spin': 'swoosh', 'zoomin': 'whoosh-alt2', 'zoomout': 'whoosh-alt2', 'glitch': 'glitch', 'leak': 'reverse-whoosh'}
-for tc, kind, _ in cuts[6:-1]:
+for tc, kind, _ in [c for c in cuts[:-1] if c[0] > DROP + 0.1]:
     if kind == 'glitch': hit(fx, 'glitch', tc, -13, length=0.5)
     elif kind == 'leak': hit(fx, 'reverse-whoosh', tc, -14)
     else: hit(fx, WH[kind], tc, -12)

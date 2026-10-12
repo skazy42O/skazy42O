@@ -179,7 +179,7 @@ def beat_kick(t):
 
 # ---------------------------------------------------------------- shots
 # cuts on the song grid; (time, transition, duration)
-CUTS = [(2.35, 'leak', 0.70), (4.55, 'zoomin', 0.30), (9.75, 'whipdown', 0.24), (10.68, 'flash', 0.22),
+CUTS = [(2.35, 'leak', 0.70), (4.55, 'zoomin', 0.30), (6.50, 'dissolve', 0.10), (7.80, 'wheel', 0.80), (9.75, 'whipdown', 0.24), (10.68, 'flash', 0.22),
         (11.94, 'glitch', 0.24), (DROP, 'zoomthru', 0.36),
         (DROP + 3*P, 'whipleft', 0.30), (DROP + 5*P, 'spin', 0.36), (DROP + 7*P, 'whipup', 0.30),
         (DROP + 10*P, 'zoomin', 0.30), (DROP + 12*P, 'whipright', 0.30), (DROP + 15*P, 'leak', 0.40),
@@ -192,7 +192,9 @@ HAT_BEATS = [4.55 + 0.65*k for k in range(9)]
 SHOTS = [
     dict(name='sunset_sil', src=23.20, spd=('c', 0.5), track='union', zoom=1.0, push=(1.0, 1.08)),
     dict(name='hero_wf', src=49.70, spd=('c', 0.6), track='union', zoom=1.05, push=(1.10, 1.0)),
-    dict(name='orbit', src=6.42, spd=('beat', 6.15), track='fixed', cx=0.52, zoom=1.0, push=(1.0, 1.04)),
+    dict(name='orbitA', src=6.42, spd=('beat', 1.88), track='fixed', cx=0.52, zoom=1.0, push=(1.0, 1.03)),
+    dict(name='wheel', src=8.30, spd=('c', 0.25), track='hub', zoom=1.0, push=(1.0, 1.06)),
+    dict(name='orbitB', src=10.25, spd=('beat', 2.32), track='fixed', cx=0.52, zoom=1.0, push=(1.03, 1.06)),
     dict(name='exhaust', src=5.50, spd=('c', 0.8), track='exhaust', zoom=1.0, push=(1.0, 1.05)),
     dict(name='sun_front', src=12.70, spd=('c', 0.5), track='fixed', cx=0.40, zoom=1.0, push=(1.04, 1.12)),
     dict(name='sil_riser', src=16.70, spd=('c', 0.6), track='union', zoom=1.0, push=(1.0, 1.25)),
@@ -308,6 +310,21 @@ class ExhaustTracker:
             self.pos = p if self.pos is None else (0.6*p[0] + 0.4*self.pos[0], 0.6*p[1] + 0.4*self.pos[1])
         return self.pos or self.c
 EXT = ExhaustTracker()
+class HubTracker:
+    """follows the wheel hub (spoke centre) for the through-the-wheel transition"""
+    def __init__(self):
+        rd = Reader(8.40, 0.1); g = cv2.cvtColor(rd.get(0), cv2.COLOR_BGR2GRAY); rd.close()
+        self.c = (1052, 592); self.tpl = g[592-120:592+120, 1052-120:1052+120]; self.pos = None
+    def update(self, fr):
+        g = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
+        x, y = self.pos or self.c; m = 260
+        xa, ya = int(max(0, x-120-m)), int(max(0, y-120-m))
+        win = g[ya:int(min(SH, y+120+m)), xa:int(min(SW, x+120+m))]
+        r = cv2.matchTemplate(win, self.tpl, cv2.TM_CCOEFF_NORMED); _, mv, _, ml = cv2.minMaxLoc(r)
+        p = (xa + ml[0] + 120, ya + ml[1] + 120)
+        if mv > 0.3: self.pos = p if self.pos is None else (0.5*p[0] + 0.5*self.pos[0], 0.5*p[1] + 0.5*self.pos[1])
+        return self.pos or self.c
+HUB = HubTracker(); HUB_OUT = [W/2, H/2]
 POPS = [10.12, 10.40, 10.52]
 
 # ---------------------------------------------------------------- shot rendering
@@ -318,7 +335,7 @@ def crop_to_vertical(fr, cx, zoom, extra_s, dx, dy, rot):
     cxc = float(np.clip(cx, ch_w/2, SW - ch_w/2))
     M = cv2.getRotationMatrix2D((cxc, SH/2), rot, s)
     M[0, 2] += W/2 - cxc + dx; M[1, 2] += H/2 - SH/2 + dy
-    return cv2.warpAffine(fr, M, (W, H), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
+    return cv2.warpAffine(fr, M, (W, H), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT), M
 
 def shot_frame(i, lt):
     sh = SHOTS[i]; k = min(len(sh['pos']) - 1, max(0, int(round(lt*FPS))))
@@ -330,6 +347,9 @@ def shot_frame(i, lt):
         tt, xx = SMOOTH[sh['name']]; cx = float(np.interp(src_t, tt, xx))
     elif sh['track'] == 'exhaust':
         cx = EXT.update(fr)[0]
+    elif sh['track'] == 'hub':
+        hx, hy = HUB.update(fr)
+        sh['_cx'] = hx if '_cx' not in sh else 0.85*sh['_cx'] + 0.15*hx; cx = sh['_cx']
     else:
         cx = sh.get('cx', 0.5)*SW
     p0, p1 = sh['push']; es = p0 + (p1 - p0)*smooth(u)
@@ -359,7 +379,9 @@ def shot_frame(i, lt):
             add_sprite(ff, CORE, ex + rng.normal(0, 6), ey + rng.normal(0, 4), min(1.9, kf*1.9)*fl)
             ff[int(ey):] += np.array([0, 30, 90], np.float32)*min(1, kf)*0.55
             fr = np.clip(ff, 0, 255).astype(np.uint8)
-    out = crop_to_vertical(fr, cx, sh['zoom'], es, dx, dy, rot)
+    out, Mc = crop_to_vertical(fr, cx, sh['zoom'], es, dx, dy, rot)
+    if sh['track'] == 'hub':
+        hx, hy = HUB.pos or HUB.c; HUB_OUT[0] = Mc[0, 0]*hx + Mc[0, 1]*hy + Mc[0, 2]; HUB_OUT[1] = Mc[1, 0]*hx + Mc[1, 1]*hy + Mc[1, 2]
     out = sharpen(out)
     out = look(out, bloom=0.26 if 'sun' in sh['name'] or 'sil' in sh['name'] or 'wf' in sh['name'] or 'wide' in sh['name'] else 0.20)
     if ca > 0.6: out = chroma(out, ca)
@@ -400,6 +422,45 @@ def poster_frame(t, T):
     if e < 0.98: fg = cv2.GaussianBlur(fg, (0, 0), 0.1 + 10*(1 - e))
     f = f*(1 - ma) + fg*ma
     return np.clip(f, 0, 255).astype(np.uint8)
+
+# ---------------------------------------------------------------- through-the-wheel transition
+DIST_Y, DIST_X = np.mgrid[0:H, 0:W].astype(np.float32)
+def spin_about(img, cx, cy, rot, scale, tx, ty, spread, n=9):
+    """rotational motion blur about (cx,cy) + move that point by (tx,ty); done at half res"""
+    s = cv2.resize(img, (W//2, H//2), interpolation=cv2.INTER_AREA).astype(np.float32); acc = np.zeros_like(s)
+    n = n if spread > 0.5 else 1
+    for k in range(n):
+        a = rot + (spread*(k/(n-1) - .5) if n > 1 else 0)
+        M = cv2.getRotationMatrix2D((cx/2, cy/2), a, scale); M[0, 2] += tx/2; M[1, 2] += ty/2
+        acc += cv2.warpAffine(s, M, (W//2, H//2), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    return cv2.resize(acc/n, (W, H), interpolation=cv2.INTER_LINEAR)
+
+def wheel_transition(fa, fb_fn, u, T):
+    hx, hy = HUB_OUT
+    z = ease_in_cubic(u); dz = deriv(ease_in_cubic, u)
+    mv = smooth(min(1, u*1.6))
+    tx, ty = (W/2 - hx)*mv, (H*0.5 - hy)*mv                 # bring the hub to screen centre
+    # A: dive into the hub while the wheel spins up
+    A = spin_about(fa, hx, hy, -170*z, 1 + 3.2*z, tx, ty, 9 + 60*dz/3)
+    A = cv2.GaussianBlur(A, (0, 0), 0.1 + 3*z)
+    v = clamp((u - 0.38)/0.62)
+    if v <= 0: return np.clip(A, 0, 255).astype(np.uint8)
+    # B: emerges from the hub through a growing rim-shaped portal, counter-spinning to rest
+    ev = ease_io_cubic(v)
+    B = spin_about(fb_fn(), W/2, H/2, 70*(1 - ease_out_cubic(v)), 1.6 - 0.6*ease_out_cubic(v), 0, 0,
+                   40*(1 - ease_out_cubic(v)))
+    ccx, ccy = hx + tx, hy + ty
+    d = np.sqrt((DIST_X - ccx)**2 + ((DIST_Y - ccy)*0.92)**2)
+    r = 30 + (math.hypot(W, H)*0.62)*ev**1.15
+    m = np.clip((r - d)/10 + 0.5, 0, 1)[..., None]
+    out = A*(1 - m) + B*m
+    # glowing rim lip on the portal edge (teal-white, like the wheel's polished lip)
+    ring = np.exp(-((d - r)/7)**2)[..., None]*np.array([255, 250, 235], np.float32)*0.95 + \
+           np.exp(-((d - r)/38)**2)[..., None]*np.array([210, 200, 120], np.float32)*0.45
+    out = out + ring*(1 - smooth((v - 0.75)/0.25))
+    fl = math.exp(-((v - 0.05)/0.10)**2)*0.35                 # tiny flash as the portal opens
+    out = out*(1 - fl) + 255*fl
+    return np.clip(out, 0, 255).astype(np.uint8)
 
 # ---------------------------------------------------------------- transitions
 LEAK = None
@@ -464,6 +525,10 @@ def transition(kind, fa, fb_fn, u, T):
         if 0.35 < u < 0.65:
             g = cv2.addWeighted(g, 0.75, np.roll(fa if u >= 0.5 else fb_fn(), 30, axis=1), 0.25, 0)
         return g
+    if kind == 'dissolve':
+        return cv2.addWeighted(fa, 1 - smooth(u), fb_fn(), smooth(u), 0)
+    if kind == 'wheel':
+        return wheel_transition(fa, fb_fn, u, T)
     if kind == 'leak':
         fb = fb_fn(); m = smooth(u)
         out = cv2.addWeighted(fa, 1 - m, fb, m, 0).astype(np.float32)
@@ -502,7 +567,7 @@ def render_frame(n):
 def main():
     json.dump({'cuts': CUTS, 'starts': starts, 'ends': ends, 'poster_start': POSTER_START, 'total': TOTAL,
                'pops': POPS, 'drop': DROP, 'P': P, 'hat_beats': HAT_BEATS,
-               'drift': {'t0': starts[11], 'spd': SHOTS[11]['spd_arr'].tolist()},
+               'drift': {'t0': starts[[x['name'] for x in SHOTS].index('drift')], 'spd': SHOTS[[x['name'] for x in SHOTS].index('drift')]['spd_arr'].tolist()},
                'shots': [{'name': s['name'], 't0': starts[i], 't1': ends[i]} for i, s in enumerate(SHOTS)]},
               open(os.path.join(BASE, 'work', 'events.json'), 'w'), indent=1)
     n0, n1 = 0, NF
