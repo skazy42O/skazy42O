@@ -5,6 +5,7 @@
 - Muzika: Medi – Crni Urus (0:00–0:33). Svi rezovi su na ritmu pesme (92 BPM): intro na zalasku sunca, „detail orbit“ (felne, karbon, difuzor) sa speed rampama na svaki udarac, pucanje iz auspuha u tišini pre dropa, DROP = auto kreće, vožnja ka suncu, slow-mo drift, poster na kraju
 - Vertikalni kadar: auto-reframe (YOLO prati auto/lika i kamera ga glatko drži u kadru)
 - „Bolja grafika“: filmski color grade (teal/orange, roll-off highlights), bloom + anamorfni flare od sunca, sharpening, vinjeta, grain, ručna „handheld“ kamera
+- Tranzicija „kroz felnu“: slika stane na felni, kroz otvore između krakova se vidi auspuh, kamera uleti u felnu i auspuh pukne
 - Tranzicije: whip pan (levo/desno/gore/dole) sa motion blurom, zoom-in / zoom-through, spin, glitch, light-leak, flash; beat zoom pulsevi i RGB split posle dropa
 - Plamen iz centralnog Mansory auspuha praćen na auspuhu (template tracking)
 - Zvuk: pravi snimci 4.0 twin-turbo V8 (Mercedes-AMG GT / E63 – ista „hot-V“ arhitektura kao Urus) i F-Type crackles iz
