@@ -88,12 +88,12 @@ hit(fx, 'reverse-whoosh', DROP, -9)
 hit(fx, 'glitch', cut(11.94), -12, length=0.6)
 hit(fx, 'swoosh', cut(10.68), -13)
 hit(fx, 'whoosh-alt2', cut(4.55), -14)
-hit(fx, 'whoosh', cut(9.75), -12)
+hit(fx, 'whoosh-alt1', cut(7.15), -14)
 hit(fx, 'reverse-whoosh', cut(2.35) + 0.2, -20)
 # through-the-wheel: spin-up reverse whoosh into the hub, swoosh as the portal opens
 for tc, kind, dur in cuts:
-    if kind == 'wheel':
-        hit(fx, 'reverse-whoosh', tc, -12); hit(fx, 'swoosh', tc + 0.05, -10); hit(fx, 'whoosh-alt1', tc + 0.15, -16)
+    if kind in ('wheel', 'wheelgap'):
+        hit(fx, 'reverse-whoosh', tc + 0.25, -11); hit(fx, 'swoosh', tc + 0.30, -12)
 
 # ---- the drop: boom + launch, engine follows the edit (varispeed in the slow-mo drift)
 hit(fx, 'boom', DROP, -5); place(fx, boom_synth(), DROP, db(-9))

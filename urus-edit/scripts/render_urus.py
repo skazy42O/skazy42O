@@ -179,7 +179,7 @@ def beat_kick(t):
 
 # ---------------------------------------------------------------- shots
 # cuts on the song grid; (time, transition, duration)
-CUTS = [(2.35, 'leak', 0.70), (4.55, 'zoomin', 0.30), (6.50, 'dissolve', 0.10), (7.80, 'wheel', 0.80), (9.75, 'whipdown', 0.24), (10.68, 'flash', 0.22),
+CUTS = [(2.35, 'leak', 0.70), (4.55, 'zoomin', 0.30), (7.15, 'whipleft', 0.30), (8.45, 'dissolve', 0.12), (9.75, 'wheelgap', 0.90), (10.68, 'flash', 0.22),
         (11.94, 'glitch', 0.24), (DROP, 'zoomthru', 0.36),
         (DROP + 3*P, 'whipleft', 0.30), (DROP + 5*P, 'spin', 0.36), (DROP + 7*P, 'whipup', 0.30),
         (DROP + 10*P, 'zoomin', 0.30), (DROP + 12*P, 'whipright', 0.30), (DROP + 15*P, 'leak', 0.40),
@@ -192,10 +192,10 @@ HAT_BEATS = [4.55 + 0.65*k for k in range(9)]
 SHOTS = [
     dict(name='sunset_sil', src=23.20, spd=('c', 0.5), track='union', zoom=1.0, push=(1.0, 1.08)),
     dict(name='hero_wf', src=49.70, spd=('c', 0.6), track='union', zoom=1.05, push=(1.10, 1.0)),
-    dict(name='orbitA', src=6.42, spd=('beat', 1.88), track='fixed', cx=0.52, zoom=1.0, push=(1.0, 1.03)),
-    dict(name='wheel', src=8.30, spd=('c', 0.25), track='hub', zoom=1.0, push=(1.0, 1.06)),
-    dict(name='orbitB', src=10.25, spd=('beat', 2.32), track='fixed', cx=0.52, zoom=1.0, push=(1.03, 1.06)),
-    dict(name='exhaust', src=5.50, spd=('c', 0.8), track='exhaust', zoom=1.0, push=(1.0, 1.05)),
+    dict(name='orbitB', src=10.25, spd=('beat', 2.31), track='fixed', cx=0.52, zoom=1.0, push=(1.0, 1.04)),
+    dict(name='orbitA', src=6.42, spd=('beat', 1.86), track='fixed', cx=0.52, zoom=1.0, push=(1.0, 1.03)),
+    dict(name='wheel', src=8.40 - 0.12*0.91, spd=('freeze', 0.12, 0.91), track='hub', zoom=1.0, push=(1.0, 1.05)),
+    dict(name='exhaust', src=5.72, spd=('c', 0.35), track='exhaust', zoom=1.0, push=(1.0, 1.05)),
     dict(name='sun_front', src=12.70, spd=('c', 0.5), track='fixed', cx=0.40, zoom=1.0, push=(1.04, 1.12)),
     dict(name='sil_riser', src=16.70, spd=('c', 0.6), track='union', zoom=1.0, push=(1.0, 1.25)),
     dict(name='launch', src=32.35, spd=('c', 1.0), track='car', zoom=1.0, push=(1.06, 1.0)),
@@ -229,6 +229,8 @@ def build_positions(sh, dur):
         pts = sh['spd'][1]; u = np.arange(n)/max(1, n-1)
         spd = np.interp(u, [p[0] for p in pts], [p[1] for p in pts])
         spd = np.convolve(np.pad(spd, 6, mode='edge'), np.ones(13)/13, mode='valid')
+    elif kind == 'freeze':   # slow drift, then hold the frame (the mask for the wheel-gap transition is drawn on it)
+        _, v, tf = sh['spd']; spd = np.where(np.arange(n)/FPS < tf, v, 0.0)
     else:  # beat ramps: slow on every hat-beat, fast between, total = src span
         span = sh['spd'][1]; tl = sh['_t0'] + np.arange(n)/FPS
         ph = ((tl - 4.55) % 0.65)/0.65
@@ -324,7 +326,7 @@ class HubTracker:
         p = (xa + ml[0] + 120, ya + ml[1] + 120)
         if mv > 0.3: self.pos = p if self.pos is None else (0.5*p[0] + 0.5*self.pos[0], 0.5*p[1] + 0.5*self.pos[1])
         return self.pos or self.c
-HUB = HubTracker(); HUB_OUT = [W/2, H/2]
+HUB = HubTracker(); HUB_OUT = [W/2, H/2]; WHEEL_MC = [None]
 POPS = [10.12, 10.40, 10.52]
 
 # ---------------------------------------------------------------- shot rendering
@@ -381,6 +383,7 @@ def shot_frame(i, lt):
             fr = np.clip(ff, 0, 255).astype(np.uint8)
     out, Mc = crop_to_vertical(fr, cx, sh['zoom'], es, dx, dy, rot)
     if sh['track'] == 'hub':
+        WHEEL_MC[0] = Mc
         hx, hy = HUB.pos or HUB.c; HUB_OUT[0] = Mc[0, 0]*hx + Mc[0, 1]*hy + Mc[0, 2]; HUB_OUT[1] = Mc[1, 0]*hx + Mc[1, 1]*hy + Mc[1, 2]
     out = sharpen(out)
     out = look(out, bloom=0.26 if 'sun' in sh['name'] or 'sil' in sh['name'] or 'wf' in sh['name'] or 'wide' in sh['name'] else 0.20)
@@ -462,6 +465,41 @@ def wheel_transition(fa, fb_fn, u, T):
     out = out*(1 - fl) + 255*fl
     return np.clip(out, 0, 255).astype(np.uint8)
 
+# ---------------------------------------------------------------- into-the-wheel transition (next shot seen through the spoke gaps)
+# gap mask hand-traced on source frame 8.40s (crop origin 412,32), dive point = centre of the top gap
+GAP_SRC = np.zeros((SH, SW), np.float32)
+_g = np.load(os.path.join(BASE, 'work', 'wheel_gap_crop.npy')); GAP_SRC[32:32+_g.shape[0], 412:412+_g.shape[1]] = _g
+GAP_P = (412 + 440/0.75, 32 + 236/0.75)
+EXH_Y = H/2 + (785 - SH/2)*(H/SH)          # where the exhaust sits in the exhaust shot
+def radial_blur_at(img, cx, cy, amount, n=8):
+    if amount < 0.004: return img
+    s = cv2.resize(img, (W//2, H//2), interpolation=cv2.INTER_AREA).astype(np.float32); acc = np.zeros_like(s)
+    for k in range(n):
+        M = cv2.getRotationMatrix2D((cx/2, cy/2), 0, 1 + amount*k/(n-1))
+        acc += cv2.warpAffine(s, M, (W//2, H//2), borderMode=cv2.BORDER_REFLECT)
+    return cv2.resize(acc/n, (W, H), interpolation=cv2.INTER_LINEAR)
+
+def wheelgap_transition(fa, fb_fn, u, T):
+    Mc = WHEEL_MC[0]
+    gap = cv2.warpAffine(GAP_SRC, Mc, (W, H), flags=cv2.INTER_LINEAR)
+    px = Mc[0, 0]*GAP_P[0] + Mc[0, 1]*GAP_P[1] + Mc[0, 2]; py = Mc[1, 0]*GAP_P[0] + Mc[1, 1]*GAP_P[1] + Mc[1, 2]
+    z = ease_in_cubic(u); dz = deriv(ease_in_cubic, u)
+    sc = 1 + 7.5*z; rot = -16*z
+    mv = smooth(min(1, u*1.25)); tx, ty = (W/2 - px)*mv, (EXH_Y - py)*mv      # fly towards the exhaust
+    M = cv2.getRotationMatrix2D((px, py), rot, sc); M[0, 2] += tx; M[1, 2] += ty
+    st = np.dstack([fa.astype(np.float32), gap*255])
+    st = cv2.warpAffine(st, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    st = radial_blur_at(st, px + tx, py + ty, 0.30*dz/3)        # wheel rushes past the camera
+    A = st[..., :3]; m = np.clip(st[..., 3:4]/255, 0, 1)
+    # the exhaust shot sits "behind" the wheel: slower zoom (parallax), slightly darker until we're through
+    B = fb_fn().astype(np.float32)
+    bs = 1.35 - 0.35*ease_out_cubic(u)
+    B = cv2.warpAffine(B, cv2.getRotationMatrix2D((W/2, EXH_Y), 0, bs), (W, H), borderMode=cv2.BORDER_REFLECT)
+    B = radial_blur_at(B, W/2, EXH_Y, 0.06*(1 - u))
+    B = B*(0.72 + 0.28*smooth(u))
+    out = A*(1 - m) + B*m
+    return np.clip(out, 0, 255).astype(np.uint8)
+
 # ---------------------------------------------------------------- transitions
 LEAK = None
 def transition(kind, fa, fb_fn, u, T):
@@ -529,6 +567,8 @@ def transition(kind, fa, fb_fn, u, T):
         return cv2.addWeighted(fa, 1 - smooth(u), fb_fn(), smooth(u), 0)
     if kind == 'wheel':
         return wheel_transition(fa, fb_fn, u, T)
+    if kind == 'wheelgap':
+        return wheelgap_transition(fa, fb_fn, u, T)
     if kind == 'leak':
         fb = fb_fn(); m = smooth(u)
         out = cv2.addWeighted(fa, 1 - m, fb, m, 0).astype(np.float32)
