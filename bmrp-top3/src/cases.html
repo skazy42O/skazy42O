@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:transparent}
+.case{position:relative;width:820px;height:560px}
+.case>img{position:absolute;inset:0;width:820px;height:560px;z-index:3}
+.panel{position:absolute;left:104px;top:164px;width:598px;height:308px;overflow:hidden;z-index:1;font-family:Anton}
+.panel svg{position:absolute;inset:0}
+.gloss{position:absolute;left:104px;top:164px;width:598px;height:308px;z-index:2;pointer-events:none;
+  background:linear-gradient(118deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.06) 30%,transparent 31%,transparent 70%,rgba(255,255,255,.07) 71%,transparent 85%)}
+.inner-shadow{position:absolute;left:104px;top:164px;width:598px;height:308px;z-index:2;box-shadow:inset 0 0 40px rgba(0,0,0,.75),inset 0 8px 20px rgba(0,0,0,.6)}
+.ttl{position:absolute;text-align:center;line-height:.9;letter-spacing:2px}
+.sub{font-family:Oswald;font-weight:700;letter-spacing:10px}
+</style></head><body>
+<div id="out"></div>
+<script>
+const P={W:598,H:308};
+const waves=(c,o=1,y=0)=>`<g fill="none" stroke-linecap="round" opacity="${o}" transform="translate(0 ${y})">
+ <path d="M-20 200 C120 90 260 260 620 60" stroke="${c}" stroke-width="20"/>
+ <path d="M-20 232 C150 130 280 290 620 110" stroke="${c}" stroke-width="7" opacity=".85"/>
+ <path d="M-20 168 C100 70 300 210 620 20" stroke="${c}" stroke-width="3.5" opacity=".6"/></g>`;
+const burst=(cx,cy,r1,r2,n,c)=>{let p='';for(let i=0;i<n*2;i++){const a=i*Math.PI/n,r=i%2?r2:r1;p+=`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)} `}return `<polygon points="${p}" fill="${c}"/>`};
+const ART={
+boomer:`<img src="bmw.jpg" style="position:absolute;right:-60px;top:0;height:320px;filter:contrast(1.08) saturate(1.1)">
+ <svg viewBox="0 0 598 308" style="z-index:1"><defs>
+  <linearGradient id="bl" x1="0" x2="1"><stop offset="0" stop-color="#0b0604"/><stop offset=".36" stop-color="#0b0604" stop-opacity=".97"/><stop offset=".6" stop-color="#0b0604" stop-opacity="0"/></linearGradient>
+  <linearGradient id="bb" x1="0" y1="0" x2="0" y2="1"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".7"/></linearGradient>
+  <linearGradient id="bt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e0"/><stop offset=".55" stop-color="#ffb04a"/><stop offset="1" stop-color="#ff6a00"/></linearGradient></defs>
+  <rect width="598" height="308" fill="url(#bl)"/><rect width="598" height="308" fill="url(#bb)"/>
+  
+  <g transform="translate(0 0)"><rect x="40" y="258" width="200" height="6" fill="#1c69d4"/><rect x="40" y="266" width="200" height="6" fill="#0a2a6e"/><rect x="40" y="274" width="200" height="6" fill="#e3262f"/></g>
+  <text x="140" y="138" font-family="Anton" font-size="72" text-anchor="middle" fill="url(#bt)" stroke="#2a0a02" stroke-width="3" paint-order="stroke" letter-spacing="2">BOOMER</text>
+  <text x="140" y="196" font-family="Anton" font-size="48" text-anchor="middle" fill="#fff" letter-spacing="14">CASE</text>
+  <text x="140" y="234" font-family="Oswald" font-weight="700" font-size="16" text-anchor="middle" fill="#ffb04a" letter-spacing="5">BMW KOLEKCIJA</text></svg>`,
+titan:`<svg viewBox="0 0 598 308"><defs><radialGradient id="ta" cx=".5" cy=".45" r=".8"><stop offset="0" stop-color="#16345f"/><stop offset="1" stop-color="#03060c"/></radialGradient>
+  <linearGradient id="tt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#bcd6ff"/><stop offset="1" stop-color="#5f9dff"/></linearGradient>
+  <filter id="tg"><feGaussianBlur stdDeviation="6"/></filter></defs>
+  <rect width="598" height="308" fill="url(#ta)"/>
+  <g filter="url(#tg)">${waves('#3f9bff',.9)}</g>${waves('#9fd0ff',.8)}
+  <polygon points="299,30 389,82 389,186 299,238 209,186 209,82" fill="rgba(63,155,255,.10)" stroke="#5fb0ff" stroke-width="4"/>
+  <polygon points="299,52 370,93 370,175 299,216 228,175 228,93" fill="none" stroke="#5fb0ff" stroke-width="1.5" opacity=".6"/>
+  <text x="299" y="172" font-family="Anton" font-size="104" text-anchor="middle" fill="url(#tt)" stroke="#03060c" stroke-width="3" paint-order="stroke" letter-spacing="4">TITAN</text>
+  <text x="299" y="278" font-family="Oswald" font-weight="700" font-size="26" text-anchor="middle" fill="#9fd0ff" letter-spacing="14">KOLEKCIJA</text></svg>`,
+status:`<svg viewBox="0 0 598 308"><defs><radialGradient id="sa" cx=".5" cy=".35" r=".8"><stop offset="0" stop-color="#7a2fe0"/><stop offset="1" stop-color="#14052b"/></radialGradient>
+  <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3c4"/><stop offset=".55" stop-color="#f2c14e"/><stop offset="1" stop-color="#b07a1c"/></linearGradient></defs>
+  <rect width="598" height="308" fill="url(#sa)"/>${waves('url(#sg)',.9,40)}
+  <g transform="translate(299 92)"><path d="M-70 40 L-80 -38 L-36 -6 L0 -60 L36 -6 L80 -38 L70 40 Z" fill="url(#sg)" stroke="#5a3408" stroke-width="3"/><rect x="-72" y="36" width="144" height="18" rx="4" fill="#d8962a" stroke="#5a3408" stroke-width="3"/>
+   <circle cy="-14" r="10" fill="#e3262f" stroke="#5a3408" stroke-width="2"/><circle cx="-44" cy="14" r="6" fill="#3bd1ff"/><circle cx="44" cy="14" r="6" fill="#3bd1ff"/></g>
+  ${[[70,70],[528,70],[110,40],[490,40]].map(([x,y],i)=>`<polygon points="${x},${y-16} ${x+14},${y} ${x},${y+22} ${x-14},${y}" fill="#efe0ff" opacity="${i>1?.6:1}"/>`).join('')}
+  <text x="299" y="236" font-family="Anton" font-size="64" text-anchor="middle" fill="url(#sg)" stroke="#14052b" stroke-width="3" paint-order="stroke" letter-spacing="3">STATUSNI</text>
+  <text x="299" y="285" font-family="Oswald" font-weight="700" font-size="34" text-anchor="middle" fill="#fff" letter-spacing="18">SIMBOL</text></svg>`,
+nemacka:`<svg viewBox="0 0 598 308"><rect width="598" height="308" fill="#0b0b0c"/>
+  <path d="M-20 330 C120 170 330 230 620 40 L620 120 C360 280 150 250 -20 380Z" fill="#161616"/>
+  <path d="M-20 290 C130 140 340 200 620 0 L620 70 C350 250 150 220 -20 350Z" fill="#c8111a"/>
+  <path d="M-20 250 C140 105 345 160 620 -40 L620 20 C350 210 160 180 -20 300Z" fill="#ffce00"/>
+  <text x="299" y="128" font-family="Anton" font-size="100" text-anchor="middle" fill="#fff" stroke="#000" stroke-width="5" paint-order="stroke" letter-spacing="4">NEMAČKA</text>
+  <text x="430" y="272" font-family="Oswald" font-weight="700" font-size="30" text-anchor="middle" fill="#fff" letter-spacing="16">CASE</text></svg>`,
+klasika:`<svg viewBox="0 0 598 308"><defs><linearGradient id="ka" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e2dccd"/></linearGradient>
+  <linearGradient id="kg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8862a"/><stop offset=".5" stop-color="#f3d58c"/><stop offset="1" stop-color="#a9741c"/></linearGradient></defs>
+  <rect width="598" height="308" fill="url(#ka)"/>${waves('url(#kg)',1,-20)}
+  <polygon points="299,26 320,80 378,82 333,118 349,174 299,142 249,174 265,118 220,82 278,80" fill="#178066" stroke="#d9a63c" stroke-width="5"/>
+  <text x="299" y="240" font-family="Anton" font-size="62" text-anchor="middle" fill="#0f5e4a" letter-spacing="3">NENADMAŠNA</text>
+  <text x="299" y="288" font-family="Oswald" font-weight="700" font-size="30" text-anchor="middle" fill="#b8862a" letter-spacing="18">KLASIKA</text></svg>`,
+};
+document.getElementById('out').innerHTML=Object.keys(ART).map(k=>`<div class="case" id="case-${k}"><div class="panel">${ART[k]}</div><div class="inner-shadow"></div><div class="gloss"></div><img src="chest-${k}.png"></div>`).join('');
+</script></body></html>

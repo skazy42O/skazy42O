@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="sr"><head><meta charset="utf-8"><title>BMRP Top 3 1080p</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@500;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f2c14e;--gold3:#b9822a;--silver:#d7dde6;--silver2:#8e98a8;--bronze:#e08a4c;--bronze2:#8c4a22;--orange:#ff7a18;--mut:#a79f93}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#07060a}
+body{width:1920px;height:1080px;overflow:hidden;font-family:Rajdhani,sans-serif;color:#f4efe6}
+#poster{position:relative;width:1920px;height:1080px;overflow:hidden;isolation:isolate;background:
+  radial-gradient(1100px 500px at 50% 10%,rgba(255,122,24,.22),transparent 60%),
+  radial-gradient(900px 600px at 50% 110%,rgba(227,38,47,.25),transparent 60%),
+  radial-gradient(600px 500px at 0% 60%,rgba(138,15,23,.35),transparent 70%),
+  radial-gradient(600px 500px at 100% 60%,rgba(138,15,23,.35),transparent 70%),
+  linear-gradient(180deg,#0d0a0f,#07060a 55%,#0a0507)}
+.photo{position:absolute;inset:0 0 auto 0;height:420px;background:url(banner.jpg) 0% 35%/180% auto;filter:blur(4px) saturate(1.2) brightness(.38);opacity:.6;z-index:-3;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent);mask-image:linear-gradient(180deg,#000,transparent)}
+.grid{position:absolute;inset:0;z-index:-2;opacity:.3;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(800px 450px at 50% 65%,#000,transparent 75%);mask-image:radial-gradient(800px 450px at 50% 65%,#000,transparent 75%)}
+.rays{position:absolute;left:50%;top:140px;width:2400px;height:2400px;margin:-1200px 0 0 -1200px;z-index:-2;opacity:.16;
+  background:repeating-conic-gradient(from 0deg,rgba(255,200,120,.55) 0deg 3deg,transparent 3deg 14deg);
+  -webkit-mask-image:radial-gradient(circle,#000,transparent 45%);mask-image:radial-gradient(circle,#000,transparent 45%);animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(14deg)}}
+.noise{position:absolute;inset:0;z-index:20;pointer-events:none;opacity:.09;mix-blend-mode:overlay}
+.vignette{position:absolute;inset:0;z-index:19;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.75))}
+.embers{position:absolute;inset:0;z-index:18;pointer-events:none}
+.ember{position:absolute;border-radius:50%;background:radial-gradient(circle,#ffd27a,#ff7a18 45%,transparent 70%);animation:rise linear infinite}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}12%{opacity:1}100%{transform:translate(30px,-360px);opacity:0}}
+.slash{position:absolute;z-index:-1;height:2px;background:linear-gradient(90deg,transparent,rgba(255,122,24,.9),transparent);transform:rotate(-10deg);filter:drop-shadow(0 0 8px #ff7a18)}
+.web{position:absolute;width:200px;height:200px;opacity:.32;z-index:1}.web.tl{top:0;left:0}.web.tr{top:0;right:0;transform:scaleX(-1)}
+
+header{position:relative;text-align:center;padding-top:22px}
+.logo-wrap{position:relative;width:500px;height:112px;margin:0 auto}
+.logo-glow{position:absolute;inset:-40px -60px;background:radial-gradient(closest-side,rgba(255,122,24,.55),rgba(227,38,47,.18) 60%,transparent);filter:blur(16px);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.6;transform:scale(1.05)}}
+.ll{position:absolute;inset:0;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.l-depth{-webkit-mask-image:url(logo-face.png);mask-image:url(logo-face.png);background:#3a0a0e;transform:translate(6px,7px)}
+.l-shadow{-webkit-mask-image:url(logo-shadow.png);mask-image:url(logo-shadow.png);background:linear-gradient(180deg,#ff7a18,#8a0f17);transform:translate(4px,4px)}
+.l-face{-webkit-mask-image:url(logo-face.png);mask-image:url(logo-face.png);background:linear-gradient(180deg,#fff 0%,#fff6e3 38%,#ffd88a 62%,#f2a33a 82%,#d8641d)}
+.l-shine{-webkit-mask-image:url(logo-face.png);mask-image:url(logo-face.png);background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.95) 48%,transparent 60%);background-size:250% 100%;mix-blend-mode:screen;animation:shine 4s ease-in-out infinite}
+@keyframes shine{0%,25%{background-position:130% 0}75%,100%{background-position:-60% 0}}
+.spider{position:absolute;right:-30px;top:-30px;width:90px}
+.city{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:10px}
+.city span{font-family:Anton;font-size:24px;letter-spacing:16px;padding-left:16px;background:linear-gradient(180deg,#ffe7a6,#e0a43a 60%,#a8691c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.city i{display:block;width:110px;height:2px;background:linear-gradient(90deg,transparent,var(--gold))}.city i:last-child{transform:scaleX(-1)}
+h1{font-family:Anton;font-weight:400;font-size:60px;letter-spacing:2px;margin-top:6px;line-height:1;color:#fff;text-shadow:0 5px 0 #2a0508,0 0 30px rgba(255,122,24,.35)}
+h1 em{font-style:normal;background:linear-gradient(180deg,#fff1c2,#ffc14d 40%,#ff7a18 70%,#e3262f);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 5px 0 #2a0508)}
+
+.podium{position:absolute;left:0;right:0;bottom:44px;display:flex;justify-content:center;align-items:flex-end;gap:30px}
+.card{--c1:var(--gold);--c2:var(--gold3);--glow:rgba(242,193,78,.5);position:relative;width:570px;height:700px;border-radius:22px;padding:0 24px 20px;
+  background:linear-gradient(180deg,rgba(28,22,26,.93),rgba(12,10,13,.97));box-shadow:0 26px 70px rgba(0,0,0,.7),0 0 60px -12px var(--glow)}
+.card::before{content:"";position:absolute;inset:0;border-radius:22px;padding:2px;background:linear-gradient(160deg,var(--c1),transparent 35%,transparent 65%,var(--c2));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.sweep{position:absolute;inset:0;border-radius:22px;overflow:hidden;pointer-events:none}
+.sweep::after{content:"";position:absolute;top:-20%;bottom:-20%;width:160px;left:-200px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transform:skewX(-18deg);animation:sweep 4s ease-in-out infinite}
+@keyframes sweep{0%,30%{left:-220px}80%,100%{left:120%}}
+.s2{--c1:var(--silver);--c2:var(--silver2);--glow:rgba(200,215,235,.32)}
+.s3{--c1:var(--bronze);--c2:var(--bronze2);--glow:rgba(224,138,76,.38)}
+.s1{width:620px;height:730px;z-index:2;background:linear-gradient(180deg,rgba(44,30,18,.95),rgba(16,11,10,.97) 45%);box-shadow:0 30px 90px rgba(0,0,0,.8),0 0 110px -10px rgba(255,170,40,.6)}
+.rank{position:relative;height:120px}
+.num{position:absolute;left:-4px;top:-26px;font-family:Anton;font-size:180px;line-height:1;background:linear-gradient(180deg,var(--c1),transparent 85%);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.2}
+.medal{position:absolute;left:0;top:26px;z-index:2}
+.medal .lbl{font-family:Oswald;font-weight:700;font-size:15px;letter-spacing:5px;color:var(--c1)}
+.medal .big{font-family:Anton;font-size:62px;line-height:1;background:linear-gradient(180deg,#fff,var(--c1) 55%,var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 0 rgba(0,0,0,.6))}
+.s1 .medal .big{font-size:72px}
+.hero{position:absolute;right:-36px;top:-58px;width:262px;z-index:3;animation:float 4s ease-in-out infinite}
+.s1 .hero{width:280px;top:-50px;right:-40px}
+.s3 .hero{animation-delay:-2s}
+.hero img{width:100%;display:block;filter:drop-shadow(0 18px 18px rgba(0,0,0,.7))}
+.hero::before{content:"";position:absolute;left:10%;right:10%;bottom:-6px;height:40px;border-radius:50%;background:radial-gradient(closest-side,var(--glow),transparent);filter:blur(4px);animation:gpulse 2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px)}}
+@keyframes gpulse{50%{opacity:.4}}
+.crown{position:absolute;left:4px;top:-50px;width:84px;transform:rotate(-14deg);z-index:5;filter:drop-shadow(0 0 16px rgba(255,190,60,.8))}
+
+.money{position:relative;display:flex;align-items:center;gap:14px;padding:10px 16px;border-radius:14px;margin-bottom:10px;overflow:hidden;background:linear-gradient(90deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08)}
+.money::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--c1),var(--c2))}
+.money .ico{width:50px;height:50px}.money .ico svg{width:50px;height:50px}
+.money .v{font-family:Anton;font-size:40px;line-height:1;color:#fff}
+.money .v small{font-size:24px;color:var(--c1);margin-left:8px;letter-spacing:2px}
+.money .d{font-family:Oswald;font-weight:500;font-size:13px;letter-spacing:4px;color:var(--mut);text-transform:uppercase;margin-top:3px}
+.s1 .money{background:linear-gradient(90deg,rgba(242,193,78,.2),rgba(242,193,78,.03));border-color:rgba(242,193,78,.35)}
+.s1 .money .v{font-size:48px;background:linear-gradient(180deg,#fff7d6,#ffcc55 60%,#d48a1c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s1 .money .v small{-webkit-text-fill-color:var(--c1)}
+.sec{margin-top:10px}
+.sec h4{display:flex;align-items:center;gap:8px;font-family:Oswald;font-weight:700;font-size:13px;letter-spacing:4px;color:var(--c1);text-transform:uppercase;margin-bottom:6px}
+.sec h4::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--c2),transparent)}
+.sec h4 .st{color:#ffcf3a;letter-spacing:0}
+.row{display:flex;align-items:center;gap:12px;padding:4px 8px 4px 4px;border-radius:10px}
+.row:nth-child(odd){background:rgba(255,255,255,.025)}
+.thumb{width:46px;height:46px;flex:none;border-radius:10px;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.1),rgba(255,255,255,.02) 70%);border:1px solid rgba(255,255,255,.07)}
+.thumb svg{width:38px;height:38px;overflow:visible}
+.row .t{font-weight:700;font-size:20px;line-height:1.05;text-transform:uppercase}
+.row .t q{quotes:none;font-family:Anton;font-weight:400;font-size:21px;color:var(--c1);margin-right:5px}
+.row .s{font-weight:600;font-size:13px;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
+.combo{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cb{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;gap:3px;height:112px;padding:6px 4px 8px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.07)}
+.cb .ic{height:52px;display:flex;align-items:flex-end;justify-content:center}
+.cb .ic svg{width:50px;height:50px;overflow:visible}
+.cb .ic img{width:92px;margin-bottom:-4px;filter:drop-shadow(0 6px 6px rgba(0,0,0,.6))}
+.cb b{font-family:Anton;font-weight:400;font-size:20px;line-height:1;color:#fff}
+.cb span{font-weight:700;font-size:12px;line-height:1.05;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
+.cb+.cb::before{content:"+";position:absolute;left:-12px;top:30px;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font:700 13px/1 Oswald;color:#120c06;background:var(--c1);box-shadow:0 0 10px var(--glow)}
+.bonus .cb b{color:var(--c1)}
+.show{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;height:96px;padding:0 10px 0 16px;border-radius:14px;
+  background:radial-gradient(240px 100px at 82% 50%,var(--glow),transparent 70%),linear-gradient(90deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08)}
+.show .t{font-weight:700;font-size:21px;line-height:1.05;text-transform:uppercase}
+.show .t q{quotes:none;display:block;font-family:Anton;font-weight:400;font-size:38px;line-height:1;color:var(--c1)}
+.show .t span{display:block;font-size:13px;color:var(--mut);letter-spacing:1px;margin-top:2px}
+.stack{display:flex;align-items:center}
+.stack img{width:128px;margin-left:-34px;filter:drop-shadow(0 8px 8px rgba(0,0,0,.6))}
+.stack img:first-child{margin-left:0}
+.s1 .sec{margin-top:16px}.s1 .row{padding:7px 8px 7px 4px}
+.s3 .show{height:110px}.s3 .stack img{width:150px}
+footer{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;align-items:center;gap:18px;font-family:Oswald;font-weight:500;font-size:13px;letter-spacing:6px;color:rgba(255,255,255,.42);text-transform:uppercase}
+footer i{width:5px;height:5px;transform:rotate(45deg);background:var(--orange);box-shadow:0 0 8px var(--orange)}footer b{color:var(--gold)}
+</style></head><body>
+<div id="poster">
+ <div class="photo"></div><div class="rays"></div><div class="grid"></div>
+ <div class="slash" style="width:600px;left:-100px;top:300px"></div><div class="slash" style="width:520px;right:-80px;top:180px;opacity:.6"></div>
+ <svg class="web tl" viewBox="0 0 260 260" fill="none" stroke="#fff" stroke-width="1.2"></svg><svg class="web tr" viewBox="0 0 260 260" fill="none" stroke="#fff" stroke-width="1.2"></svg>
+ <header>
+  <div class="logo-wrap"><div class="logo-glow"></div><div class="ll l-depth"></div><div class="ll l-shadow"></div><div class="ll l-face"></div><div class="ll l-shine"></div>
+   <svg class="spider" viewBox="0 0 150 150" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="1.4" id="spiderweb"></svg></div>
+  <div class="city"><i></i><span>BEOGRAD</span><i></i></div>
+  <h1>NAGRADE ZA TOP 3 <em>ILEGALNE ORGANIZACIJE</em></h1>
+ </header>
+
+ <section class="podium">
+  <article class="card s2"><div class="sweep"></div>
+   <div class="rank"><div class="num">02</div><div class="medal"><div class="lbl">SREBRO</div><div class="big">2. MESTO</div></div><div class="hero"><img src="../kutije/Case-Nemacka.png"></div></div>
+   <div class="money"><div class="ico" data-ico="safe"></div><div><div class="v">5.000.000<small>DIN</small></div><div class="d">u sef fakcije</div></div></div>
+   <div class="sec"><h4>Fakcija</h4>
+    <div class="row"><div class="thumb" data-ico="building"></div><div class="t"><q>1x</q>Objekat po želji</div></div>
+    <div class="row"><div class="thumb" data-ico="shield"></div><div><div class="t">Skidanje opomene</div><div class="s">fakciji — ukoliko postoji</div></div></div>
+    <div class="row"><div class="thumb" data-ico="shroom"></div><div><div class="t"><q>40x</q>Paketića droge</div><div class="s">od pečuraka</div></div></div></div>
+   <div class="sec"><h4>Top 5 članova <span class="st">★★★</span></h4><div class="combo">
+    <div class="cb"><div class="ic" data-ico="donate"></div><b>1.000</b><span>Donata</span></div>
+    <div class="cb"><div class="ic" data-ico="vest"></div><b>5x</b><span>Izdržljivi pancir</span></div>
+    <div class="cb"><div class="ic"><img src="../kutije/Case-Nemacka.png"></div><b>1x</b><span>Case Nemačka</span></div></div></div>
+   <div class="sec"><h4>Lider &amp; pod lider</h4><div class="show"><div class="t"><q>2x</q>Kutija<br>Statusni simbol</div><div class="stack"><img src="../kutije/Statusni-Simbol.png"><img src="../kutije/Statusni-Simbol.png"></div></div></div>
+  </article>
+
+  <article class="card s1"><div class="sweep"></div>
+   <svg class="crown" viewBox="0 0 120 80"><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#f2c14e"/><stop offset="1" stop-color="#a8691c"/></linearGradient></defs>
+    <path d="M10 70 L4 18 L34 42 L60 6 L86 42 L116 18 L110 70 Z" fill="url(#cg)" stroke="#5a3408" stroke-width="2"/><rect x="10" y="62" width="100" height="12" rx="3" fill="#d89a2e" stroke="#5a3408" stroke-width="2"/>
+    <circle cx="60" cy="40" r="7" fill="#e3262f" stroke="#5a3408" stroke-width="2"/><circle cx="32" cy="52" r="4.5" fill="#3bd1ff"/><circle cx="88" cy="52" r="4.5" fill="#3bd1ff"/></svg>
+   <div class="rank"><div class="num">01</div><div class="medal"><div class="lbl">ŠAMPION · ZLATO</div><div class="big">1. MESTO</div></div><div class="hero"><img src="../kutije/Boomer-Case.png"></div></div>
+   <div class="money"><div class="ico" data-ico="safe"></div><div><div class="v">10.000.000<small>DIN</small></div><div class="d">u sef fakcije</div></div></div>
+   <div class="sec"><h4>Fakcija</h4>
+    <div class="row"><div class="thumb" data-ico="building"></div><div class="t"><q>2x</q>Objekat po želji</div></div>
+    <div class="row"><div class="thumb" data-ico="shield"></div><div><div class="t">Skidanje warna / opomene</div><div class="s">fakciji — ukoliko postoji</div></div></div></div>
+   <div class="sec"><h4>Top 5 članova <span class="st">★★★</span></h4><div class="combo">
+    <div class="cb"><div class="ic" data-ico="donate"></div><b>2.000</b><span>Donata</span></div>
+    <div class="cb"><div class="ic" data-ico="rifle"></div><b>1x</b><span>Puška po želji</span></div>
+    <div class="cb"><div class="ic"><img src="../kutije/Boomer-Case.png"></div><b>1x</b><span>Boomer case</span></div></div></div>
+   <div class="sec"><h4>Lider &amp; pod lider</h4><div class="show" style="height:112px"><div class="t"><q>3x</q>Titan<br>kolekcija</div><div class="stack"><img src="../kutije/Titan-Kolekcija.png" style="width:150px"><img src="../kutije/Titan-Kolekcija.png" style="width:150px"><img src="../kutije/Titan-Kolekcija.png" style="width:150px"></div></div></div>
+  </article>
+
+  <article class="card s3"><div class="sweep"></div>
+   <div class="rank"><div class="num">03</div><div class="medal"><div class="lbl">BRONZA</div><div class="big">3. MESTO</div></div><div class="hero"><img src="../kutije/Nenadmasna-Klasika.png"></div></div>
+   <div class="money"><div class="ico" data-ico="safe"></div><div><div class="v">3.000.000<small>DIN</small></div><div class="d">u sef fakcije</div></div></div>
+   <div class="sec"><h4>Top 10 članova <span class="st">★★★</span></h4><div class="show"><div class="t"><q>1x</q>Kutija<br>Nenadmašna klasika<span>svakom od 10 članova</span></div><div class="stack"><img src="../kutije/Nenadmasna-Klasika.png"></div></div></div>
+   <div class="sec"><h4>Lider &amp; pod lider</h4><div class="show"><div class="t"><q>1x</q>Kutija<br>Statusni simbol</div><div class="stack"><img src="../kutije/Statusni-Simbol.png"></div></div></div>
+   <div class="sec"><h4>Bonus paket</h4><div class="combo bonus">
+    <div class="cb"><div class="ic" data-ico="brain"></div><b>40x</b><span>Brain crush</span></div>
+    <div class="cb"><div class="ic" data-ico="medkit"></div><b>40x</b><span>Vojna prva pomoć</span></div>
+    <div class="cb"><div class="ic" data-ico="defib"></div><b>40x</b><span>Defibrilator</span></div></div></div>
+  </article>
+ </section>
+ <footer><i></i><span><b>BMRP</b> BEOGRAD</span><i></i><span>Ilegalna rang lista</span><i></i><span>Bori se za vrh</span><i></i></footer>
+ <div class="embers" id="embers"></div><div class="vignette"></div>
+ <svg class="noise" width="1920" height="1080"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+</div>
+<script src="icons.js"></script><script src="web.js"></script>
+<script>
+document.querySelectorAll('[data-ico]').forEach(el=>el.innerHTML=ICONS[el.dataset.ico]);
+document.querySelectorAll('.web').forEach(w=>w.innerHTML=web(0,0,250,7,7));
+document.getElementById('spiderweb').innerHTML=web(150,0,140,6,6,90,180)+`<line x1="78" y1="0" x2="78" y2="96"/><g transform="translate(78 104)" fill="#111" stroke="#ff7a18"><ellipse rx="7" ry="9"/><circle cy="-10" r="4.5"/></g>`;
+let seed=11;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const em=document.getElementById('embers');
+for(let i=0;i<60;i++){const d=document.createElement('div');d.className='ember';const sz=2+rnd()*5,dur=rnd()<.5?2:4;
+ d.style.cssText=`width:${sz}px;height:${sz}px;left:${rnd()*1920}px;top:${300+rnd()*800}px;animation-duration:${dur}s;animation-delay:-${(rnd()*dur).toFixed(2)}s;opacity:${.4+rnd()*.6}`;em.appendChild(d)}
+</script></body></html>
