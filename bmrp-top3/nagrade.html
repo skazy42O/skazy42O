@@ -103,8 +103,8 @@ header{position:relative;text-align:center;padding-top:58px;height:500px}
   background:linear-gradient(180deg,#fff 0%,var(--c1) 55%,var(--c2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 4px 0 rgba(0,0,0,.6))}
 .s1 .medal .big{font-size:90px}
-.hero{position:absolute;right:-26px;top:-70px;width:270px;height:270px;z-index:3}
-.s1 .hero{width:320px;height:320px;top:-110px;right:-34px}
+.hero{position:absolute;right:-34px;top:-40px;width:250px;height:250px;z-index:3}
+.s1 .hero{width:290px;height:290px;top:-90px;right:-52px}
 .hero svg{width:100%;height:100%;overflow:visible}
 .tag{position:absolute;right:8px;bottom:6px;z-index:4;font-family:Oswald;font-weight:700;font-size:13px;letter-spacing:3px;padding:5px 12px;border-radius:30px;
   color:#120c06;background:linear-gradient(180deg,var(--c1),var(--c2));box-shadow:0 6px 18px rgba(0,0,0,.5)}
@@ -348,6 +348,102 @@ const CRATES={
    leftArt:`<rect x="14" y="34" width="72" height="32" rx="16" fill="#06261e" stroke="#e7c27a" stroke-width="2.5"/><text x="50" y="57" font-family="Anton" font-size="18" text-anchor="middle" fill="#e7c27a" letter-spacing="1">CLASSIC</text>`,
    rightArt:`<polygon points="50,24 57,42 76,43 61,55 66,74 50,63 34,74 39,55 24,43 43,42" fill="#e7c27a" stroke="#6b4b14" stroke-width="2"/>`}),
 };
+
+/* ---------- chest (kovčeg) style cases ---------- */
+function chest(o,hero){
+  const id=U('ch'),q=k=>id+k;
+  const W=176,H=108;
+  const handles=[74,124,166,216].map(x=>`<g><polygon points="${x},53 ${x+30},53 ${x+31},63 ${x-1},63" fill="url(#${q('rb')})" stroke="rgba(0,0,0,.6)" stroke-width="1"/><polygon points="${x+3},55 ${x+27},55 ${x+27.3},58 ${x+2.7},58" fill="${o.trim[0]}" opacity=".9"/></g>`).join('');
+  const grooves=(x)=>[0,1,2,3].map(i=>`<rect x="${x+5+i*5.5}" y="96" width="2.4" height="124" rx="1.2" fill="rgba(0,0,0,.45)"/><rect x="${x+7.4+i*5.5}" y="96" width=".8" height="124" fill="rgba(255,255,255,.08)"/>`).join('');
+  return `<svg viewBox="0 18 320 240"><defs>
+   <linearGradient id="${q('bd')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${o.body[0]}"/><stop offset="1" stop-color="${o.body[1]}"/></linearGradient>
+   <linearGradient id="${q('lt')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${o.lid[0]}"/><stop offset="1" stop-color="${o.lid[1]}"/></linearGradient>
+   <linearGradient id="${q('tr')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${o.trim[0]}"/><stop offset=".5" stop-color="${o.trim[1]}"/><stop offset="1" stop-color="${o.trim[2]}"/></linearGradient>
+   <linearGradient id="${q('trh')}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${o.trim[2]}"/><stop offset=".5" stop-color="${o.trim[0]}"/><stop offset="1" stop-color="${o.trim[2]}"/></linearGradient>
+   <pattern id="${q('cf')}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="${o.rub[0]}"/><rect width="3" height="3" fill="${o.rub[1]}"/><rect x="3" y="3" width="3" height="3" fill="${o.rub[1]}"/></pattern>
+   <linearGradient id="${q('rb')}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".35" stop-color="#fff" stop-opacity=".10"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></linearGradient>
+   <linearGradient id="${q('gl')}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".45" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+   <radialGradient id="${q('glow')}"><stop offset="0" stop-color="${o.glow}" stop-opacity=".95"/><stop offset="1" stop-color="${o.glow}" stop-opacity="0"/></radialGradient>
+   <clipPath id="${q('clip')}"><rect width="${W}" height="${H}" rx="3"/></clipPath>
+  </defs>
+  ${hero?`<ellipse cx="160" cy="140" rx="160" ry="130" fill="url(#${q('glow')})" opacity=".45"/>`:''}
+  <ellipse cx="160" cy="240" rx="150" ry="16" fill="url(#${q('glow')})"/>
+  <ellipse cx="160" cy="238" rx="132" ry="7" fill="rgba(0,0,0,.65)"/>
+  <!-- body -->
+  <rect x="30" y="86" width="260" height="146" rx="10" fill="url(#${q('bd')})" stroke="rgba(0,0,0,.7)" stroke-width="1.5"/>
+  <rect x="34" y="226" width="252" height="9" rx="3" fill="#0b0b0d"/>
+  <!-- side bumpers -->
+  <rect x="30" y="80" width="32" height="154" rx="9" fill="url(#${q('cf')})" stroke="rgba(0,0,0,.8)" stroke-width="1.5"/>
+  <rect x="258" y="80" width="32" height="154" rx="9" fill="url(#${q('cf')})" stroke="rgba(0,0,0,.8)" stroke-width="1.5"/>
+  <rect x="30" y="80" width="32" height="154" rx="9" fill="url(#${q('rb')})"/><rect x="258" y="80" width="32" height="154" rx="9" fill="url(#${q('rb')})"/>
+  ${grooves(30)}${grooves(258)}
+  <rect x="61" y="86" width="3" height="146" fill="url(#${q('tr')})"/><rect x="256" y="86" width="3" height="146" fill="url(#${q('tr')})"/>
+  <!-- lid -->
+  <polygon points="46,50 274,50 292,72 28,72" fill="url(#${q('lt')})" stroke="rgba(0,0,0,.7)" stroke-width="1.5"/>
+  <polygon points="46,50 274,50 276,53 44,53" fill="rgba(255,255,255,.25)"/>
+  <polyline points="28,72 46,50 274,50 292,72" fill="none" stroke="url(#${q('trh')})" stroke-width="2.5"/>
+  ${handles}
+  <rect x="26" y="72" width="268" height="18" rx="4" fill="url(#${q('cf')})" stroke="rgba(0,0,0,.8)" stroke-width="1.2"/>
+  <rect x="26" y="72" width="268" height="18" rx="4" fill="url(#${q('rb')})" opacity=".5"/>
+  <rect x="26" y="72" width="268" height="3" fill="url(#${q('trh')})"/>
+  <rect x="26" y="88" width="268" height="2.5" fill="url(#${q('trh')})"/>
+  ${[80,120,200,240].map(x=>`<rect x="${x}" y="77" width="16" height="7" rx="2" fill="#0a0a0a" stroke="${o.trim[1]}" stroke-width=".8"/>`).join('')}
+  <rect x="146" y="74" width="28" height="22" rx="3" fill="url(#${q('tr')})" stroke="rgba(0,0,0,.7)"/><rect x="155" y="80" width="10" height="10" rx="2" fill="#111"/><circle cx="160" cy="85" r="2" fill="${o.glow}"/>
+  <!-- front panel -->
+  <rect x="66" y="98" width="188" height="124" rx="7" fill="url(#${q('tr')})" stroke="rgba(0,0,0,.6)"/>
+  <rect x="70" y="102" width="180" height="116" rx="5" fill="#0a0a0a"/>
+  <g transform="translate(72 106)"><g clip-path="url(#${q('clip')})">${o.art(q)}</g>
+    <rect width="${W}" height="${H}" rx="3" fill="none" stroke="rgba(0,0,0,.5)" stroke-width="2"/>
+    <polygon points="0,0 96,0 40,${H} 0,${H}" fill="url(#${q('gl')})" opacity=".55"/></g>
+  <!-- screws -->
+  ${[[70,102],[250,102],[70,218],[250,218]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2.6" fill="${o.trim[0]}" stroke="rgba(0,0,0,.6)" stroke-width=".8"/>`).join('')}
+  <rect x="30" y="86" width="260" height="10" fill="rgba(255,255,255,.06)"/>
+  ${hero?sparkles(o.spark):''}
+  </svg>`;
+}
+const wave=(q,c,op=1)=>`<g fill="none" stroke-linecap="round" opacity="${op}">
+  <path d="M-10 70 C40 30 80 95 190 35" stroke="${c}" stroke-width="7"/>
+  <path d="M-10 82 C50 45 90 105 190 52" stroke="${c}" stroke-width="2.5" opacity=".8"/>
+  <path d="M-10 58 C30 25 100 80 190 20" stroke="${c}" stroke-width="1.5" opacity=".6"/></g>`;
+const burst=(cx,cy,r1,r2,n,c)=>{let p='';for(let i=0;i<n*2;i++){const a=i*Math.PI/n,r=i%2?r2:r1;p+=`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)} `}return `<polygon points="${p}" fill="${c}"/>`};
+const T=(t,x,y,sz,fill,extra='')=>`<text x="${x}" y="${y}" font-family="Anton" font-size="${sz}" text-anchor="middle" fill="${fill}" ${extra}>${t}</text>`;
+const CHESTS={
+ boomer:h=>chest({glow:'#ff6a00',spark:'#ffd27a',body:['#2c2f36','#14161a'],lid:['#3a3e47','#1c1f25'],rub:['#121214','#1d1d21'],trim:['#ffd08a','#ff8a1f','#9a3d06'],
+  art:q=>`<defs><radialGradient id="${q('ba')}" cx=".5" cy=".55"><stop offset="0" stop-color="#ffe27a"/><stop offset=".35" stop-color="#ff8a1f"/><stop offset="1" stop-color="#5a0d06"/></radialGradient></defs>
+   <rect width="176" height="108" fill="url(#${q('ba')})"/>
+   ${burst(88,52,70,30,14,'rgba(255,240,170,.35)')}${burst(88,52,44,22,12,'rgba(255,255,220,.55)')}
+   <g>${Array.from({length:12},(_,i)=>`<polygon points="${i*20-20},108 ${i*20-10},108 ${i*20+4},92 ${i*20-6},92" fill="#111"/>`).join('')}</g><rect y="92" width="176" height="16" fill="#ff8a1f" style="mix-blend-mode:multiply" opacity=".0"/>
+   <rect y="90" width="176" height="2" fill="#111"/>
+   <g transform="translate(140 22)"><circle r="13" fill="#111"/><circle cx="-4" cy="-4" r="3.5" fill="rgba(255,255,255,.35)"/><rect x="5" y="-16" width="7" height="6" rx="1" fill="#333" transform="rotate(35)"/><path d="M10 -14 q6 -8 12 -4" stroke="#222" stroke-width="2" fill="none"/><circle cx="22" cy="-18" r="3.5" fill="#fff6a0"/></g>
+   ${T('BOOMER',88,66,38,'#fff','stroke="#2a0a02" stroke-width="2.5" paint-order="stroke" letter-spacing="1"')}
+   ${T('CASE',88,84,13,'#2a0a02','letter-spacing="6"')}
+   ${[[18,20,2.5],[34,40,1.6],[150,70,2],[160,50,1.4],[20,70,1.8]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="#fff6a0"/>`).join('')}`}),
+ titan:h=>chest({glow:'#3f9bff',spark:'#bfe0ff',body:['#3a4250','#161a21'],lid:['#4c5566','#20252e'],rub:['#0d0f13','#1a1e25'],trim:['#e8eef7','#9aa6b8','#4b5566'],
+  art:q=>`<defs><linearGradient id="${q('ta')}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1a33"/><stop offset="1" stop-color="#05080f"/></linearGradient><linearGradient id="${q('tt')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#8fb8ff"/></linearGradient></defs>
+   <rect width="176" height="108" fill="url(#${q('ta')})"/>${wave(q,'#3f9bff',.9)}
+   <polygon points="88,14 118,31 118,65 88,82 58,65 58,31" fill="rgba(63,155,255,.12)" stroke="#3f9bff" stroke-width="2"/>
+   ${T('TITAN',88,64,36,`url(#${q('tt')})`,'letter-spacing="2" style="filter:drop-shadow(0 0 4px #3f9bff)"')}
+   ${T('KOLEKCIJA',88,98,12,'#8fb8ff','letter-spacing="5"')}`}),
+ status:h=>chest({glow:'#b14dff',spark:'#f0c8ff',body:['#3b1a66','#1a0a30'],lid:['#4d2585','#24103f'],rub:['#120a1c','#1e122d'],trim:['#fff1c2','#e0b04a','#8a5a14'],
+  art:q=>`<defs><radialGradient id="${q('sa')}" cx=".5" cy=".3"><stop offset="0" stop-color="#8b3dff"/><stop offset="1" stop-color="#1f0840"/></radialGradient><linearGradient id="${q('sg')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3c4"/><stop offset="1" stop-color="#d8962a"/></linearGradient></defs>
+   <rect width="176" height="108" fill="url(#${q('sa')})"/>${wave(q,'#e0b04a',.85)}
+   <path d="M62 50 L56 18 L74 32 L88 10 L102 32 L120 18 L114 50 Z" fill="url(#${q('sg')})" stroke="#5a3408" stroke-width="1.5"/><rect x="62" y="48" width="52" height="7" rx="2" fill="#d8962a" stroke="#5a3408"/>
+   <circle cx="88" cy="34" r="4" fill="#e3262f"/><polygon points="22,34 30,26 38,34 30,48" fill="#e9d5ff"/><polygon points="138,34 146,26 154,34 146,48" fill="#e9d5ff"/>
+   ${T('STATUSNI',88,80,22,`url(#${q('sg')})`,'letter-spacing="2"')}${T('SIMBOL',88,100,16,'#fff','letter-spacing="6"')}`}),
+ nemacka:h=>chest({glow:'#ff3030',spark:'#ffd36b',body:['#26262a','#0c0c0e'],lid:['#333338','#141416'],rub:['#0a0a0a','#18181a'],trim:['#ffe58a','#ffce00','#9a7a00'],
+  art:q=>`<rect width="176" height="108" fill="#0c0c0c"/>
+   <path d="M-10 108 C40 60 100 70 190 10 L190 40 C110 90 50 90 -10 130Z" fill="#111"/>
+   <path d="M-10 92 C45 50 105 62 190 0 L190 22 C110 78 50 74 -10 112Z" fill="#d4161e"/>
+   <path d="M-10 74 C45 34 105 46 190 -16 L190 4 C110 60 50 58 -10 94Z" fill="#ffce00"/>
+   ${T('NEMAČKA',88,52,32,'#fff','stroke="#000" stroke-width="2.5" paint-order="stroke" letter-spacing="2"')}
+   ${T('CASE',88,98,13,'#ffce00','letter-spacing="7"')}`}),
+ klasika:h=>chest({glow:'#2fe0b0',spark:'#c8fff0',body:['#f3eee4','#c9c1b0'],lid:['#fbf8f1','#d9d2c2'],rub:['#121416','#1f2326'],trim:['#fff1c2','#d9a63c','#7a5410'],
+  art:q=>`<defs><linearGradient id="${q('ka')}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e7e1d3"/></linearGradient></defs>
+   <rect width="176" height="108" fill="url(#${q('ka')})"/>${wave(q,'#d9a63c',.95)}
+   <polygon points="88,12 95,30 114,31 99,42 104,61 88,50 72,61 77,42 62,31 81,30" fill="#178066" stroke="#d9a63c" stroke-width="2"/>
+   ${T('NENADMAŠNA',88,82,20,'#0f5e4a','letter-spacing="2"')}${T('KLASIKA',88,100,15,'#b8862a','letter-spacing="6"')}`}),
+};
+Object.keys(CHESTS).forEach(k=>CRATES[k]=CHESTS[k]);
 
 /* ---------- small icons ---------- */
 const ICONS={
