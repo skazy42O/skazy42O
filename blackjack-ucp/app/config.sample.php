@@ -94,9 +94,9 @@ return [
         ['label' => 'Sati igre',    'col' => 'hours',   'fmt' => 'hours', 'icon' => 'clock'],
         ['label' => 'Respekt',      'col' => 'respect', 'fmt' => 'int',   'icon' => 'up'],
         ['label' => 'Posao',        'col' => 'job',     'fmt' => 'map',   'icon' => 'job',
-            'map' => [0 => 'Nezaposlen', 1 => 'Mesar', 2 => 'Stocar', 3 => 'Kamiondzija', 4 => 'Taksista']],
+            'map' => [0 => 'Nezaposlen', 1 => 'Mesar', 2 => 'Stočar', 3 => 'Kamiondžija', 4 => 'Taksista']],
         ['label' => 'Organizacija', 'col' => 'org',     'fmt' => 'map',   'icon' => 'org',
-            'map' => [0 => 'Civil', 1 => 'Chicago Police Department', 2 => 'Grove Street', 3 => 'Bandera Srece']],
+            'map' => [0 => 'Civil', 1 => 'Chicago Police Department', 2 => 'Grove Street', 3 => 'Bandera Sreće']],
         ['label' => 'VIP',          'col' => 'vip',     'fmt' => 'map',   'icon' => 'vip',
             'map' => [0 => 'Nema', 1 => 'Bronze', 2 => 'Silver', 3 => 'Gold', 4 => 'Platinum', 5 => 'Diamond']],
         ['label' => 'Opomene',      'col' => 'warns',   'fmt' => 'int',   'icon' => 'warn'],
@@ -116,6 +116,111 @@ return [
         ['name' => 'Elvedin',    'role' => 'Vlasnik',  'card' => 'A', 'suit' => '♣','skin' => 165],
         ['name' => 'Bato Rider', 'role' => 'Co-Owner', 'card' => 'K', 'suit' => '♠','skin' => 299],
         ['name' => 'RomaN',      'role' => 'Skripter', 'card' => 'J', 'suit' => '♣','skin' => 187],
+    ],
+
+    /* ---------------------------------------------------------------
+     | Organizacije + zone (teritorije)
+     | Clanovi se citaju iz tabele naloga (member_col / rank_col).
+     * ------------------------------------------------------------- */
+    'orgs' => [
+        'table'      => 'organizations',
+        'id'         => 'id',
+        'name'       => 'name',
+        'type'       => 'type',          // null ako nema
+        'types'      => [0 => 'Legalna', 1 => 'Ilegalna'],
+        'leader'     => 'leader',        // ime lidera (tekst) ili null -> uzima clana sa najvecim rankom
+        'color'      => 'color',         // 'FF0000' / '#FF0000' / '0xFF0000AA' / int ili null
+        'member_col' => 'org',           // kolona u tabeli naloga = ID organizacije
+        'rank_col'   => 'org_rank',      // null ako nema
+        'rank_names' => [1 => 'Član', 2 => 'Iskusni član', 3 => 'Desna ruka', 4 => 'Savetnik', 5 => 'Zamenik', 6 => 'Lider'],
+    ],
+    'zones' => [
+        'table' => 'gangzones',
+        'id'    => 'id',
+        'name'  => 'name',               // null ako zone nemaju ime
+        'owner' => 'owner',              // ID organizacije (0 = slobodna)
+        'top'   => 10,
+    ],
+
+    /* ---------------------------------------------------------------
+     | Ban lista
+     * ------------------------------------------------------------- */
+    'bans' => [
+        'table'       => 'bans',
+        'id'          => 'id',
+        'name'        => 'name',
+        'admin'       => 'admin',
+        'reason'      => 'reason',
+        'date'        => 'date',
+        'expires'     => 'expires',      // 0 / NULL = trajni ban; null ako nema kolone
+        'ip'          => 'ip',           // vidi samo admin; null ako nema
+        'date_format' => 'datetime',     // 'datetime' ili 'unix' - kako gamemode cuva vreme
+        'unban'       => 'delete',       // 'delete' = brise red, 'active' = postavlja active_col na 0
+        'active_col'  => null,
+        'per_page'    => 25,
+    ],
+
+    /* ---------------------------------------------------------------
+     | Imovina igraca (UCP + admin)
+     | owner_by: 'name' (vlasnik upisan kao ime) ili 'id' (ID naloga)
+     * ------------------------------------------------------------- */
+    'property' => [
+        'houses' => [
+            'label' => 'Kuće', 'icon' => 'home',
+            'table' => 'houses', 'id' => 'id', 'owner' => 'owner', 'owner_by' => 'name',
+            'title' => 'address',
+            'fields' => [
+                ['label' => 'Vrednost', 'col' => 'price',  'fmt' => 'money'],
+                ['label' => 'Level',    'col' => 'level',  'fmt' => 'int'],
+                ['label' => 'Zaključana', 'col' => 'locked', 'fmt' => 'bool'],
+            ],
+        ],
+        'businesses' => [
+            'label' => 'Firme', 'icon' => 'bank',
+            'table' => 'businesses', 'id' => 'id', 'owner' => 'owner', 'owner_by' => 'name',
+            'title' => 'name',
+            'fields' => [
+                ['label' => 'Vrednost', 'col' => 'price', 'fmt' => 'money'],
+                ['label' => 'Kasa',     'col' => 'till',  'fmt' => 'money'],
+                ['label' => 'Tip',      'col' => 'type',  'fmt' => 'map', 'map' => [0 => 'Prodavnica', 1 => 'Pumpa', 2 => 'Restoran', 3 => 'Klub']],
+            ],
+        ],
+        'vehicles' => [
+            'label' => 'Vozila', 'icon' => 'car',
+            'table' => 'vehicles', 'id' => 'id', 'owner' => 'owner', 'owner_by' => 'name',
+            'model' => 'model',              // SA-MP model ID (400-611) -> slika i ime
+            'title' => 'plate',
+            'fields' => [
+                ['label' => 'Tablice',  'col' => 'plate', 'fmt' => 'text'],
+                ['label' => 'Gorivo',   'col' => 'fuel',  'fmt' => 'percent'],
+                ['label' => 'Kilometri', 'col' => 'km',   'fmt' => 'km'],
+            ],
+        ],
+    ],
+
+    /* ---------------------------------------------------------------
+     | Web admin panel (prema koloni account.admin)
+     * ------------------------------------------------------------- */
+    'admin_panel' => [
+        'min_level'   => 3,   // ulaz u panel
+        'ban_level'   => 3,   // ban / unban
+        'edit_level'  => 4,   // izmena statistike igraca
+        'owner_level' => 6,   // menja admin nivoe drugima
+        'online_col'  => null, // kolona u tabeli naloga koja kaze da je igrac u igri (upozorenje pri izmeni)
+        // Polja koja admin moze da menja (col mora postojati u tabeli naloga)
+        'editable' => [
+            ['label' => 'Level',        'col' => 'level',   'min' => 0, 'max' => 1000],
+            ['label' => 'Novac',        'col' => 'money',   'min' => 0, 'max' => 2000000000],
+            ['label' => 'Banka',        'col' => 'bank',    'min' => 0, 'max' => 2000000000],
+            ['label' => 'Zlato',        'col' => 'gold',    'min' => 0, 'max' => 1000000],
+            ['label' => 'Respekt',      'col' => 'respect', 'min' => 0, 'max' => 100000],
+            ['label' => 'Skin',         'col' => 'skin',    'min' => 0, 'max' => 311],
+            ['label' => 'Posao',        'col' => 'job',     'min' => 0, 'max' => 50],
+            ['label' => 'Organizacija', 'col' => 'org',     'min' => 0, 'max' => 100],
+            ['label' => 'Rank u org.',  'col' => 'org_rank','min' => 0, 'max' => 10],
+            ['label' => 'VIP',          'col' => 'vip',     'min' => 0, 'max' => 5],
+            ['label' => 'Opomene',      'col' => 'warns',   'min' => 0, 'max' => 3],
+        ],
     ],
 
     /* ---------------------------------------------------------------

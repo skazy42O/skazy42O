@@ -36,27 +36,44 @@ function qi(string $ident): string
     return '`' . $ident . '`';
 }
 
-/** Postojece kolone tabele naloga (kesirano), da UCP ne puca ako neke kolone nema. */
-function account_columns(): array
+/** Kolone bilo koje tabele (kesirano po zahtevu). Prazan niz = tabela ne postoji. */
+function table_columns(?string $table): array
 {
-    static $cols = null;
-    if ($cols !== null) {
-        return $cols;
+    static $cache = [];
+    if ($table === null || $table === '') {
+        return [];
+    }
+    if (isset($cache[$table])) {
+        return $cache[$table];
     }
     $cols = [];
     $pdo = db();
-    if (!$pdo) {
-        return $cols;
-    }
-    try {
-        $st = $pdo->query('SHOW COLUMNS FROM ' . qi(cfg('account.table')));
-        foreach ($st as $r) {
-            $cols[$r['Field']] = true;
+    if ($pdo) {
+        try {
+            foreach ($pdo->query('SHOW COLUMNS FROM ' . qi($table)) as $r) {
+                $cols[$r['Field']] = true;
+            }
+        } catch (PDOException $ex) {
+            // tabela ne postoji - modul se samo sakriva
         }
-    } catch (PDOException $ex) {
-        error_log('[BJ-UCP] ' . $ex->getMessage());
     }
-    return $cols;
+    return $cache[$table] = $cols;
+}
+
+function table_ok(?string $table): bool
+{
+    return table_columns($table) !== [];
+}
+
+function tcol(?string $table, ?string $col): bool
+{
+    return $col !== null && $col !== '' && isset(table_columns($table)[$col]);
+}
+
+/** Postojece kolone tabele naloga, da UCP ne puca ako neke kolone nema. */
+function account_columns(): array
+{
+    return table_columns(cfg('account.table'));
 }
 
 function has_col(?string $col): bool

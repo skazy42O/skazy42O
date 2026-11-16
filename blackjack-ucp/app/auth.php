@@ -131,6 +131,7 @@ function login_user(array $acc): void
     $_SESSION['uid'] = (int)$acc[cfg('account.id')];
     $_SESSION['uname'] = (string)$acc[cfg('account.name')];
     $_SESSION['login_at'] = time();
+    $_SESSION['staff'] = is_staff($acc);
 }
 
 function logout_user(): void
@@ -164,6 +165,7 @@ function require_login(): array
         logout_user();
         redirect('login.php');
     }
+    $_SESSION['staff'] = is_staff($acc);
     return $acc;
 }
 

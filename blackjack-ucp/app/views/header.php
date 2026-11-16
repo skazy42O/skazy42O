@@ -30,9 +30,13 @@ $bodyClass = $bodyClass ?? '';
     <button class="nav-toggle" aria-label="Meni" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav-links">
       <a href="<?= url('') ?>#server" class="<?= $active === 'home' ? 'on' : '' ?>">Server</a>
+      <a href="<?= url('organizacije.php') ?>" class="<?= $active === 'orgs' ? 'on' : '' ?>">Organizacije</a>
+      <a href="<?= url('banovi.php') ?>" class="<?= $active === 'bans' ? 'on' : '' ?>">Ban lista</a>
       <a href="<?= url('') ?>#high-command">High Command</a>
-      <a href="<?= url('') ?>#galerija">Galerija</a>
       <a href="<?= e(cfg('site.discord')) ?>" target="_blank" rel="noopener">Discord</a>
+      <?php if (!empty($_SESSION['staff'])): ?>
+        <a href="<?= url('admin/') ?>" class="nav-admin <?= $active === 'admin' ? 'on' : '' ?>"><?= icon('shield') ?> Admin</a>
+      <?php endif; ?>
       <?php if (is_logged_in()): ?>
         <a class="btn btn-sm btn-ghost <?= $active === 'ucp' ? 'on' : '' ?>" href="<?= url('ucp/') ?>"><?= icon('user') ?> <?= e($_SESSION['uname']) ?></a>
         <a class="btn btn-sm" href="<?= url('logout.php') ?>"><?= icon('logout') ?> Odjava</a>

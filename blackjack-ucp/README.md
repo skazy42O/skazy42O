@@ -8,6 +8,12 @@ PHP 8 + MySQL (ista baza koju koristi gamemode), radi na Windows VPS-u (XAMPP / 
 - **Registracija** — RP format imena `Ime_Prezime` (uživo provera), email, jačina lozinke, honeypot protiv botova, limit naloga po IP-u. Nalog se upisuje direktno u tabelu gamemode-a, pa odmah važi u igri.
 - **Prijava** — istim imenom/lozinkom kao u igri, zaštita od brute-force (limit po IP-u i po imenu).
 - **UCP** — skin karaktera, admin rank, statistika (level, novac, banka, zlato, sati, posao, organizacija, VIP…), info o nalogu, promena lozinke i emaila.
+- **Organizacije** — top 10 po broju zauzetih zona (rang lista sa bojama organizacija), sve legalne/ilegalne organizacije, stranica organizacije sa članovima (rank, skin) i zonama.
+- **Ban lista** — javna, sa pretragom i paginacijom (IP adrese vidi samo admin).
+- **Imovina u UCP-u** — kuće, firme i vozila igrača (slike i imena svih SA-MP vozila 400–611).
+- **Admin panel** (`/admin`) — pregled, pretraga igrača, izmena statistike, admin nivoi, ban/unban, istorija banova, imovina igrača i **log svih akcija** (tabela `ucp_admin_log` se pravi sama).
+  - Prava po nivou (`config → admin_panel`): ulaz od nivoa 3, ban od 3, izmena od 4, admin nivoi samo vlasnik (6).
+  - Admin ne može da menja/banuje nekog sa istim ili većim nivoom.
 - Bezbednost: PDO prepared statements, CSRF tokeni, `session_regenerate_id`, HttpOnly/SameSite kolačići, `app/` van web root-a.
 
 ## Struktura
@@ -48,9 +54,13 @@ sql/            primer tabele za lokalni test
 | `SHA256_PassHash(pass, salt)` | `sha256_salt` (+ `account.salt` kolona) |
 | MD5 | `md5` |
 
+## Mapiranje tabela
+Svaki modul ima svoj blok u `config.php` (`orgs`, `zones`, `bans`, `property`, `admin_panel`). Ako neka tabela ili kolona ne postoji, modul se samo sakrije — sajt ne puca. Kad pošalješ SQL dump, uskladimo imena.
+
 ## Lokalni test
 ```
 mysql -u root blackjack < sql/primer_users.sql
+mysql -u root blackjack < sql/primer_demo_podaci.sql   # izmišljeni podaci, samo za test
 cd public && php -S 127.0.0.1:8080
 ```
 

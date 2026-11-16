@@ -20,7 +20,9 @@ $adm = admin_title($acc);
   </div>
   <nav class="ucp-menu">
     <a href="<?= url('ucp/') ?>" class="<?= $ucpTab === 'home' ? 'on' : '' ?>"><?= icon('home') ?> Pregled</a>
+    <a href="<?= url('ucp/imovina.php') ?>" class="<?= $ucpTab === 'property' ? 'on' : '' ?>"><?= icon('car') ?> Imovina</a>
     <a href="<?= url('ucp/settings.php') ?>" class="<?= $ucpTab === 'settings' ? 'on' : '' ?>"><?= icon('cog') ?> Podešavanja</a>
+    <?php if (is_staff($acc)): ?><a href="<?= url('admin/') ?>"><?= icon('shield') ?> Admin panel</a><?php endif; ?>
     <a href="<?= url('') ?>"><?= icon('star') ?> Portal</a>
     <a href="<?= url('logout.php') ?>"><?= icon('logout') ?> Odjava</a>
   </nav>

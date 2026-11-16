@@ -94,6 +94,13 @@
     document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !lb.hidden) close(); });
   }
 
+  // Potvrda za opasne akcije (ban, unban, admin nivo)
+  document.querySelectorAll('form[data-confirm]').forEach(function (f) {
+    f.addEventListener('submit', function (ev) {
+      if (!window.confirm(f.getAttribute('data-confirm'))) ev.preventDefault();
+    });
+  });
+
   // Live online brojac
   if (window.BJ_STATUS_URL) {
     var p = document.getElementById('st-players');

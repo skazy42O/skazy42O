@@ -22,6 +22,7 @@ date_default_timezone_set('Europe/Belgrade');
 require APP_DIR . '/db.php';
 require APP_DIR . '/auth.php';
 require APP_DIR . '/samp_query.php';
+require APP_DIR . '/modules.php';
 
 /* ---------------------------------------------------------------
  | Sesija
@@ -156,6 +157,10 @@ function fmt_value($v, array $stat): string
             return number_format((int)$v, 0, ',', '.') . ' G';
         case 'hours':
             return number_format((int)$v, 0, ',', '.') . ' h';
+        case 'percent':
+            return (int)$v . '%';
+        case 'km':
+            return number_format((float)$v, 0, ',', '.') . ' km';
         case 'bool':
             return $v ? 'Da' : 'Ne';
         case 'datetime':
@@ -200,6 +205,12 @@ function icon(string $name): string
         'gun'   => '<path d="M3 8h17l1 3h-6l-1 2h-3l-1 5H6l1-5H3z"/>',
         'chat'  => '<path d="M4 5h16v11H9l-5 4z"/>',
         'cal'   => '<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+        'ban'   => '<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
+        'map'   => '<path d="M9 4L3 6.5v13.5L9 17.5l6 2.5 6-2.5V4l-6 2.5zM9 4v13.5M15 6.5V20"/>',
+        'crown' => '<path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/>',
+        'list'  => '<path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>',
+        'search'=> '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+        'edit'  => '<path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/>',
         'id'    => '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.5 16c.6-1.6 1.9-2.4 3.5-2.4s2.9.8 3.5 2.4M15 10h3.5M15 13.5h3.5"/>',
     ];
     $p = $i[$name] ?? $i['star'];
