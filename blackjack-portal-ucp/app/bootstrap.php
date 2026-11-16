@@ -27,20 +27,22 @@ require APP_DIR . '/modules.php';
 /* ---------------------------------------------------------------
  | Sesija
  * ------------------------------------------------------------- */
-$secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
-session_name('BJUCP');
-session_set_cookie_params([
-    'lifetime' => 0,
-    'path'     => cfg('site.base_url', '/'),
-    'secure'   => $secure,
-    'httponly' => true,
-    'samesite' => 'Lax',
-]);
-session_start();
+if (PHP_SAPI !== 'cli') {
+    $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+    session_name('BJUCP');
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path'     => cfg('site.base_url', '/'),
+        'secure'   => $secure,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
+    session_start();
 
-header('X-Frame-Options: SAMEORIGIN');
-header('X-Content-Type-Options: nosniff');
-header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('X-Content-Type-Options: nosniff');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+}
 
 /* ---------------------------------------------------------------
  | Helperi

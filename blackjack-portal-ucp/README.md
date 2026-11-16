@@ -1,5 +1,7 @@
 # BLACK JACK RolePlay — Portal & UCP
 
+Folder: `blackjack-portal-ucp`
+
 Portal + User Control Panel za SA-MP server **Black Jack RolePlay**.
 PHP 8 + MySQL (ista baza koju koristi gamemode), radi na Windows VPS-u (XAMPP / Laragon / IIS).
 
@@ -18,12 +20,25 @@ PHP 8 + MySQL (ista baza koju koristi gamemode), radi na Windows VPS-u (XAMPP / 
 
 ## Struktura
 ```
+START.bat       Windows meni: pokreni / uvezi bazu / proveri bazu / config
+tools/          proveri-bazu.php (CLI provera mapiranja)
 app/            logika, config, view-ovi (NIJE javno)
   config.sample.php   -> kopiraj u config.php
   storage/            kes + rate-limit (mora biti upisiv)
 public/         web root (index.php, login.php, register.php, ucp/, api/, assets/)
 sql/            primer tabele za lokalni test
 ```
+
+## Pokretanje na tvom PC-u (npr. D: disk) — najbrže
+1. Instaliraj **XAMPP** (C:\xampp ili D:\xampp) i u XAMPP Control Panelu upali **MySQL**.
+2. Skini projekat sa GitHuba (Code → Download ZIP) i raspakuj folder `blackjack-portal-ucp` na **D:\blackjack-portal-ucp**.
+3. Dupli klik na **`START.bat`**:
+   - **2** — uvozi tvoju bazu (podrazumevano `Downloads\blackjack11.09.2026.sql`) u lokalni MySQL
+   - **3** — proverava da li config odgovara bazi i čuva rezultat u `proveri-bazu.txt` (bez podataka igrača — taj fajl pošalji za usklađivanje)
+   - **4** — otvara `app\config.php` u Notepadu
+   - **1** — pokreće sajt na http://127.0.0.1:8080 i otvara browser
+
+Sve radi lokalno — baza i podaci igrača ne izlaze sa tvog računara.
 
 ## Instalacija na Windows VPS (XAMPP)
 1. Instaliraj XAMPP (PHP 8.1+), uključi `extension=pdo_mysql` i `extension=mbstring` u `php.ini`.

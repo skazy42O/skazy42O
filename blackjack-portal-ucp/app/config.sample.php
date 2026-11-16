@@ -155,7 +155,7 @@ return [
         'expires'     => 'expires',      // 0 / NULL = trajni ban; null ako nema kolone
         'ip'          => 'ip',           // vidi samo admin; null ako nema
         'date_format' => 'datetime',     // 'datetime' ili 'unix' - kako gamemode cuva vreme
-        'unban'       => 'delete',       // 'delete' = brise red, 'active' = postavlja active_col na 0
+        'unban'       => 'delete',       // unban = brisanje reda (tako radi gamemode)
         'active_col'  => null,
         'per_page'    => 25,
     ],
@@ -206,7 +206,7 @@ return [
         'ban_level'   => 3,   // ban / unban
         'edit_level'  => 4,   // izmena statistike igraca
         'owner_level' => 6,   // menja admin nivoe drugima
-        'online_col'  => null, // kolona u tabeli naloga koja kaze da je igrac u igri (upozorenje pri izmeni)
+        'online_col'  => 'online', // kolona u tabeli naloga: 1 = igrac je u igri (upozorenje pri izmeni). null ako nema
         // Polja koja admin moze da menja (col mora postojati u tabeli naloga)
         'editable' => [
             ['label' => 'Level',        'col' => 'level',   'min' => 0, 'max' => 1000],

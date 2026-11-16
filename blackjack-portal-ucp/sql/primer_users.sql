@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `vip`        TINYINT NOT NULL DEFAULT 0,
   `warns`      TINYINT NOT NULL DEFAULT 0,
   `admin`      TINYINT NOT NULL DEFAULT 0,
+  `online`     TINYINT NOT NULL DEFAULT 0,
   `registered` DATETIME DEFAULT NULL,
   `last_login` DATETIME DEFAULT NULL,
   `reg_ip`     VARCHAR(45) DEFAULT NULL,

@@ -1,5 +1,5 @@
 # Ako DocumentRoot nije podesen na /public, ovo preusmerava sve tamo
 # i sprecava pristup app/ folderu (config sa lozinkom baze).
 RewriteEngine On
-RewriteRule ^(app|sql)(/|$) - [F,L]
+RewriteRule ^(app|sql|tools)(/|$) - [F,L]
 RewriteRule ^(?!public/)(.*)$ public/$1 [L]
